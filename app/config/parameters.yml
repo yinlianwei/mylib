@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     3306
+    database_name:     mylib2
+    database_user:     root
+    database_password: evenvi
+
+    mailer_transport:  gmail
+    mailer_host:       smtp.gmail.com
+    mailer_user:       yinlianwei
+    mailer_password:   ylw0314798587
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt

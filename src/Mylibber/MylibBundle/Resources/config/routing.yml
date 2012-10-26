@@ -1,0 +1,18 @@
+mylibber_mylib_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MylibberMylibBundle:Default:index }
+MylibberMylibBundle_homepage: 
+    pattern :   / 
+    defaults :  {  _controller: MylibberMylibBundle:Page:index  } 
+    requirements : 
+        _method :   GET
+
+MylibberMylibBundle_about:
+    pattern:    /about
+    defaults:   { _controller: MylibberMylibBundle:Page:about}
+
+MylibberMylibBundle_contact:
+    pattern:    /contact
+    defaults:   { _controller: MylibberMylibBundle:Page:contact}
+    requirements:
+       _method:   GET|POST
