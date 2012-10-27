@@ -183,6 +183,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::aboutAction',  '_route' => 'MylibberMylibBundle_about',);
         }
 
+        // MylibberMylibBundle_manage
+        if ($pathinfo === '/manage') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::manageAction',  '_route' => 'MylibberMylibBundle_manage',);
+        }
+
         // MylibberMylibBundle_contact
         if ($pathinfo === '/contact') {
             if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {

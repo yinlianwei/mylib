@@ -47,6 +47,11 @@ class PageController extends Controller
 			));
 	}
 
+	public function manageAction()
+	{
+		return $this->render('MylibberMylibBundle:Page:manage.html.twig');
+	}
+
 }
 
 ?>

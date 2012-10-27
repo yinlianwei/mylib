@@ -1,63 +1,223 @@
 <?php
+
 namespace Mylibber\MylibBundle\Entity;
-use Doctrine\ORM\Mapping as ORM; 
-/*
-*@ORM\Entity
-*@ORM\Table(name="book")
-*/
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Mylibber\MylibBundle\Entity\Book
+ */
 class Book
 {
-	/** 
-	 * @ORM\Entity 
-	 * @author JiaoChangyun 
-	 * 
-	 */  
-	
-	/** 
-     * @ORM\Id 
-     * @ORM\Column(type="integer") 
-     * @ORM\GeneratedValue (strategy="AUTO") 
-     */ 
-	protected $bookid;
+    /**
+     * @var integer $id
+     */
+    private $id;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $bookname;
+    /**
+     * @var string $bookname
+     */
+    private $bookname;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $booktype;
+    /**
+     * @var string $booktype
+     */
+    private $booktype;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $bookauthor;
+    /**
+     * @var string $bookauthor
+     */
+    private $bookauthor;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $bookprice;
+    /**
+     * @var integer $bookprice
+     */
+    private $bookprice;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $bookpic;
+    /**
+     * @var string $bookcontent
+     */
+    private $bookcontent;
 
- 	/** 
-     * @ORM\Column(type="text") 
-     */ 
-	protected $bookcontent;
+    /**
+     * @var string $bookisbn
+     */
+    private $bookisbn;
 
-	/** 
-     * @ORM\Column(type="string") 
-     */ 
-	protected $bookisbn;
+    /**
+     * @var string $bookborrhis
+     */
+    private $bookborrhis;
 
-	/** 
-     * @ORM\Column(type="text") 
-     */ 
-	protected $bookborrhis;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set bookname
+     *
+     * @param string $bookname
+     * @return Book
+     */
+    public function setBookname($bookname)
+    {
+        $this->bookname = $bookname;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookname
+     *
+     * @return string 
+     */
+    public function getBookname()
+    {
+        return $this->bookname;
+    }
+
+    /**
+     * Set booktype
+     *
+     * @param string $booktype
+     * @return Book
+     */
+    public function setBooktype($booktype)
+    {
+        $this->booktype = $booktype;
+    
+        return $this;
+    }
+
+    /**
+     * Get booktype
+     *
+     * @return string 
+     */
+    public function getBooktype()
+    {
+        return $this->booktype;
+    }
+
+    /**
+     * Set bookauthor
+     *
+     * @param string $bookauthor
+     * @return Book
+     */
+    public function setBookauthor($bookauthor)
+    {
+        $this->bookauthor = $bookauthor;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookauthor
+     *
+     * @return string 
+     */
+    public function getBookauthor()
+    {
+        return $this->bookauthor;
+    }
+
+    /**
+     * Set bookprice
+     *
+     * @param integer $bookprice
+     * @return Book
+     */
+    public function setBookprice($bookprice)
+    {
+        $this->bookprice = $bookprice;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookprice
+     *
+     * @return integer 
+     */
+    public function getBookprice()
+    {
+        return $this->bookprice;
+    }
+
+    /**
+     * Set bookcontent
+     *
+     * @param string $bookcontent
+     * @return Book
+     */
+    public function setBookcontent($bookcontent)
+    {
+        $this->bookcontent = $bookcontent;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookcontent
+     *
+     * @return string 
+     */
+    public function getBookcontent()
+    {
+        return $this->bookcontent;
+    }
+
+    /**
+     * Set bookisbn
+     *
+     * @param string $bookisbn
+     * @return Book
+     */
+    public function setBookisbn($bookisbn)
+    {
+        $this->bookisbn = $bookisbn;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookisbn
+     *
+     * @return string 
+     */
+    public function getBookisbn()
+    {
+        return $this->bookisbn;
+    }
+
+    /**
+     * Set bookborrhis
+     *
+     * @param string $bookborrhis
+     * @return Book
+     */
+    public function setBookborrhis($bookborrhis)
+    {
+        $this->bookborrhis = $bookborrhis;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookborrhis
+     *
+     * @return string 
+     */
+    public function getBookborrhis()
+    {
+        return $this->bookborrhis;
+    }
 }
-?>

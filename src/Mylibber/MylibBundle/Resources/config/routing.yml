@@ -11,6 +11,10 @@ MylibberMylibBundle_about:
     pattern:    /about
     defaults:   { _controller: MylibberMylibBundle:Page:about}
 
+MylibberMylibBundle_manage:
+    pattern:   /manage
+    defaults:  {_controller: MylibberMylibBundle:Page:manage}
+
 MylibberMylibBundle_contact:
     pattern:    /contact
     defaults:   { _controller: MylibberMylibBundle:Page:contact}
