@@ -1,0 +1,28 @@
+Mylibber\MylibBundle\Entity\Book:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        bookname:
+            type: string
+            length: 255
+        booktype:
+            type: string
+            length: 255
+        bookauthor:
+            type: string
+            length: 255
+        bookprice:
+            type: integer
+        bookcontent:
+            type: text
+        bookisbn:
+            type: string
+            length: 255
+        bookborrhis:
+            type: text
+    lifecycleCallbacks: {  }
