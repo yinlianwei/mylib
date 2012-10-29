@@ -12,7 +12,15 @@ class PageController extends Controller
 	
 	public function indexAction()
 	{
-		return $this->render( 'MylibberMylibBundle:Page:index.html.twig');
+		$id=1;
+		$em=$this->getDoctrine()->getEntityManager();
+		$book=$em->getRepository('MylibberMylibBundle:Book')->find($id);
+
+		if (!$book) {
+			throw $this->createNotFoundException("Unable to find Book Post(request)");
+		}
+		return $this->render( 'MylibberMylibBundle:Page:index.html.twig', array(
+			'book'  => $book));
 
 	}
 

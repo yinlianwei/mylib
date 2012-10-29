@@ -16,3 +16,17 @@ MylibberMylibBundle_contact:
     defaults:   { _controller: MylibberMylibBundle:Page:contact}
     requirements:
        _method:   GET|POST
+
+MylibberMylibBundle_book_show:
+    pattern:   /show/{id}
+    defaults:  {_controller: MylibberMylibBundle:Book:show}
+    requirements:
+       _method: GET
+       id: \d+
+MylibberMylibBundle_book_add:
+    pattern:   /create
+    defaults:  {_controller: MylibberMylibBundle:Book:create}
+
+MylibberMylibBundle_search:
+    pattern:   /search
+    defaults:  {_controller: MylibberMylibBundle:Book:search}

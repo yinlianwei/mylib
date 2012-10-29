@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /home/evenvi/Zend/workspaces/DefaultWorkspace/Mylib/app/config/routing_dev.yml

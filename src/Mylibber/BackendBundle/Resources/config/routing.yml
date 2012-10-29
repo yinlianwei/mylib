@@ -1,0 +1,6 @@
+mylibber_backend_hello:
+    pattern:  /hello/{name}
+    defaults: { _controller: MylibberBackendBundle:Default:hello }
+mylibber_backend_homepage:
+    pattern:  /admin
+    defaults: { _controller: MylibberBackendBundle:Default:index }

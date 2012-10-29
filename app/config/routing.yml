@@ -1,3 +1,7 @@
+mylibber_backend:
+    resource: "@MylibberBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mylibber_mylib:
     resource: "@MylibberMylibBundle/Resources/config/routing.yml"
     prefix:   /

@@ -10,6 +10,13 @@
             <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
             <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('css/bootstrap-responsive.css') }}" rel="stylesheet" type="text/css">
+            <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css">
+
+            <script  src="{{ asset('js/bootstrap.js') }}" language="javascript"></script>
+            <script  src="{{ asset('js/bootstrap.min.js') }}" language="javascript"></script>
         {% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -21,17 +28,18 @@
                     {% block navigation %}
                         <nav>
                             <ul class="navigation">
-                                <li><a href="{{ path('MylibberMylibBundle_homepage')}}">Home</a></li>
-                                <li><a href="{{ path('MylibberMylibBundle_about') }}">About</a></li>
-                                <li><a href="{{ path('MylibberMylibBundle_contact')}}">Contact</a></li>
+                                <li><a href="{{ path('MylibberMylibBundle_homepage')}}">主页</a></li>
+                                <li><a href="{{ path('MylibberMylibBundle_about') }}">关于</a></li>
+                                <li><a href="{{ path('MylibberMylibBundle_contact')}}">联系我们</a></li>
+                                <li><a href="{{ path('MylibberMylibBundle_search')}}">书籍搜索</a></li>
                             </ul>
                         </nav>
                     {% endblock %}
                 </div>
 
                 <hgroup>
-                    <h2>{% block blog_title %}<a href="{{path('MylibberMylibBundle_homepage')}}">mylib</a>{% endblock %}</h2>
-                    <h3>{% block blog_tagline %}<a href="{{path('MylibberMylibBundle_homepage')}}">Books management system in symfony2</a>{% endblock %}</h3>
+                    <h4>{% block blog_title %}<a href="{{path('MylibberMylibBundle_homepage')}}">网上图书馆</a>{% endblock %}</h4>
+                    <h5>{% block blog_tagline %}<a href="{{path('MylibberMylibBundle_homepage')}}">Books management system in symfony2</a>{% endblock %}</h5>
                 </hgroup>
             </header>
 

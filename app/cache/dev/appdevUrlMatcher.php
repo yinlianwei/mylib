@@ -158,6 +158,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // mylibber_backend_hello
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\DefaultController::helloAction',)), array('_route' => 'mylibber_backend_hello'));
+        }
+
+        // mylibber_backend_homepage
+        if ($pathinfo === '/admin') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\DefaultController::indexAction',  '_route' => 'mylibber_backend_homepage',);
+        }
+
         // mylibber_mylib_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'mylibber_mylib_homepage'));
@@ -193,6 +203,27 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::contactAction',  '_route' => 'MylibberMylibBundle_contact',);
         }
         not_MylibberMylibBundle_contact:
+
+        // MylibberMylibBundle_book_show
+        if (0 === strpos($pathinfo, '/show') && preg_match('#^/show/(?<id>\\d+)$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_MylibberMylibBundle_book_show;
+            }
+
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showAction',)), array('_route' => 'MylibberMylibBundle_book_show'));
+        }
+        not_MylibberMylibBundle_book_show:
+
+        // MylibberMylibBundle_book_add
+        if ($pathinfo === '/create') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::createAction',  '_route' => 'MylibberMylibBundle_book_add',);
+        }
+
+        // MylibberMylibBundle_search
+        if ($pathinfo === '/search') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::searchAction',  '_route' => 'MylibberMylibBundle_search',);
+        }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

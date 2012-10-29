@@ -1,0 +1,19 @@
+{% extends 'MylibberMylibBundle::layout.html.twig' %}
+
+{%  block title %} 书籍搜索 {% endblock %}
+
+{% block body %}
+	<header> 
+        <h1> 书籍搜索 </h1> 
+    </header>
+	{% if app.session.hasFlash('blogger-notice') %}
+	    <div  class= "blogger-notice" >
+	        {{ app.session.flash('blogger-notice') }}
+	    </div>
+	{% endif %}
+    <form action="{{ path('MylibberMylibBundle_search') }}" method="post" {{ form_enctype(form) }} class="bloger"> 
+	    {{ form_widget(form) }} 
+	 
+	    <input type="submit" /> 
+	</form> 
+{% endblock%}

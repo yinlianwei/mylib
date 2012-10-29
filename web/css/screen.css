@@ -4,7 +4,7 @@ body  {  line-height :  1 ; font-family :  Arial ,  Helvetica ,  sans-serif ; fo
 .clear  {  clear :  both ;  }
 
 #wrapper  {  margin :  10px  auto ;  width :  1000px ;  } 
-#wrapper  a  {  text-decoration :  none ;  color :  #F48A00 ;  } 
+#wrapper  a  {  text-decoration :  none ;  } 
 #wrapper  span .highlight  {  color :  #F48A00 ;  }
 
 #header  {  border-bottom :  1px  solid  #ccc ;  margin-bottom :  20px ;  } 
@@ -12,9 +12,9 @@ body  {  line-height :  1 ; font-family :  Arial ,  Helvetica ,  sans-serif ; fo
 #header  ul .navigation  {  list-style :  none ;  text-align :  right ;  } 
 #header  .navigation  li  {  display :  inline  } 
 #header  .navigation  li  a  {  display :  inline - block ;  padding :  10px  15px ;  border-left :  1px  solid  #ccc ;  } 
-#header  h2  {  font-family :  'Irish Grover' ,  cursive ;  font-size :  92px ;  text-align :  center ;  line-height :  110px ;  } 
-#header  h2  a  {  color :  #000 ;  } 
-#header  h3  {  text-align :  center ;  font-family :  'La Belle Aurore' ,  cursive ;  font-size :  24px ;  margin-bottom :  20px ;  font-weight :  normal ;  }
+#header  h4  {  font-size :  32px ;  text-align :  center ;  line-height : 80px ;  } 
+#header  h4 a  {  color :  #000 ;  } 
+#header  h5  {  text-align :  right ;  font-family :  'La Belle Aurore' ,  cursive ;  font-size :  18px ;  margin-bottom :  20px ;  font-weight :  normal ;  }
 
 .main-col  {  width :  700px ;  display :  inline - block ;  float :  left ;  border-right :  1px  solid  #ccc ;  padding :  20px ;  margin-bottom :  20px ;  } 
 .sidebar  {  width :  239px ;  padding :  10px ;  display :  inline - block ;  }

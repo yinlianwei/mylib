@@ -34,7 +34,7 @@ class __TwigTemplate_2906a4d6563e7a69609f43d9d4c54f14 extends Twig_Template
         echo "
 \t<link href=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/blog.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/mylib.css"), "html", null, true);
         echo "\" type= \"text/css\"  rel= \"stylesheet\">
 ";
     }

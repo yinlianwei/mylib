@@ -1,0 +1,47 @@
+{% extends '::backendBase.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{asset('css/backend.css')}}" type= "text/css"  rel= "stylesheet">
+{%  endblock %}
+
+{% block sidebar %}
+<ul class="nav nav-list">
+ 	<li class="active">
+    	<a href="#"><i class = "icon-home"></i>常用操作</a>
+  	</li>
+  	<li>
+    	<a href="#">
+      		<i class="icon-backward"></i>图书借出
+    	</a>
+   	</li>
+   	<li>
+    	<a href="#">
+      		<i class="icon-gift"></i>图书归还
+   		</a>
+   	</li>
+   	<li>
+   		<a href="#">
+      		<i class="icon-book"></i>图书录入
+    	</a>
+   	</li> 
+   	<li>
+   		<a href="#">
+      		<i class="icon-list"></i>借阅历史
+    	</a>
+  	</li>
+  	<li class="active">
+    	<a href="#"><i class = "icon-home"></i>其他配置</a>
+  	</li>
+    <li>
+      	<a href="#">
+      		<i class="icon-user"></i>用户管理
+    	</a>
+    </li>
+    <li>
+    	<a href="#">
+      		<i class="icon-edit"></i>系统配置
+    	</a>
+    </li>
+</ul>
+{% endblock %}
