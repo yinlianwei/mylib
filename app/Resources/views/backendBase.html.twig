@@ -32,13 +32,14 @@
                                 <li><a href="{{ path('MylibberMylibBundle_about') }}">关于</a></li>
                                 <li><a href="{{ path('MylibberMylibBundle_contact')}}">联系我们</a></li>
                                 <li><a href="{{ path('MylibberMylibBundle_search')}}">书籍搜索</a></li>
+                                <li><a href="{{ path('mylibber_backend_homepage')}}">admin</a></li>
                             </ul>
                         </nav>
                     {% endblock %}
                 </div>
 
                 <hgroup>
-                    <h4>{% block blog_title %}<a href="{{path('MylibberMylibBundle_homepage')}}">图书管理系统</a>{% endblock %}</h4>
+                    <h4>{% block blog_title %}<a href="{{path('mylibber_backend_homepage')}}">图书管理系统</a>{% endblock %}</h4>
                     <h5>{% block blog_tagline %}Books management system in symfony2{% endblock %}</h5>
                 </hgroup>
             </header>

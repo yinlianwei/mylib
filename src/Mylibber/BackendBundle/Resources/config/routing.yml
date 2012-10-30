@@ -4,3 +4,36 @@ mylibber_backend_hello:
 mylibber_backend_homepage:
     pattern:  /admin
     defaults: { _controller: MylibberBackendBundle:Default:index }
+
+mylibber_backend_addbook:
+    pattern:  /addbook
+    defaults: { _controller: MylibberBackendBundle:Book:add  }
+
+mylibber_backend_addnew:
+    pattern:  /addnew
+    defaults: { _controller: MylibberBackendBundle:Book:addnew  }
+
+mylibber_backend_borrbook:
+    pattern:  /borrbook
+    defaults: { _controller: MylibberBackendBundle:Book:borr  }
+
+mylibber_backend_retbook:
+    pattern:  /retbook
+    defaults: { _controller: MylibberBackendBundle:Book:ret  }
+
+mylibber_backend_histbook:
+    pattern:  /histbook
+    defaults: { _controller: MylibberBackendBundle:Book:hist  }
+
+mylibber_backend_usermanage:
+    pattern:  /usermanage
+    defaults: { _controller: MylibberBackendBundle:Book:usermanage  }
+
+mylibber_backend_config:
+    pattern:  /config
+    defaults: { _controller: MylibberBackendBundle:Book:config  }
+
+
+success:
+   pattern: /success
+   defaults: { _controller: MylibberBackendBundle:User:success }

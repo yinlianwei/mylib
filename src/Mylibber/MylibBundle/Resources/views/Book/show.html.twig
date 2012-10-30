@@ -5,15 +5,19 @@
 
 {% block body %}
     <article class="book">
-        <header>
+       
+            <header>
             <h2>{{ book.bookName }}</h2>
-        </header>
-        <img src="{{ asset([book.bookPic]|join) }}" alt="{{ book.bookName }} image not found" class="large" />
-        <div>
-        	<p>ISBN: {{ book.bookIsbn }}</p>
-        	<p>作者: {{ book.bookAuthor}} </p>
-        	<p>定价: {{book.bookPrice}}</p>
-            <p>{{ book.bookContent }}</p>
-        </div>
+            </header>
+            <img src="{{ asset([book.bookPic]|join) }}" alt="{{ book.bookName }} image not found" class="large" />
+            <div>
+                <p>ISBN: {{ book.bookIsbn }}</p>
+                <p>作者: {{ book.bookAuthor}} </p>
+                <p>定价: {{book.bookPrice}}</p>
+                <p>{{ book.bookContent }}</p>
+            </div>
+
+       
+
     </article>
 {% endblock %}

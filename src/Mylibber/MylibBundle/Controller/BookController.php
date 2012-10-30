@@ -47,17 +47,16 @@ class BookController extends Controller
 		return $this->redirect($this->generateUrl('homepage'));	
 	}
 	
-	public function showAction($id)
+	public function showAction()
 	{
-		$em=$this->getDoctrine()->getEntityManager();
-		$book=$em->getRepository('MylibberMylibBundle:Book')->find($id);
-
-		if (!$book) {
-			throw $this->createNotFoundException("Unable to find Book Post(request)");
+		$books = $this->getDoctrine()
+				->getRepository('MylibberMylibBundle:Book')
+				->findAll();
+		if (!$books) {
+			throw $this->createNotFoundException('No product found for id ');
 		}
-
-		return $this->render('MylibberMylibBundle:Book:show.html.twig', array(
-			'book'  => $book,
+		return $this->render('MylibberMylibBundle:Default:index.html.twig', array(
+			'books'  => $books,
 			));
 	}
 
@@ -76,6 +75,32 @@ class BookController extends Controller
 
 		return $this->render('MylibberMylibBundle:Book:search.html.twig',
 			array('form'=>$form->createView()
+			));
+	}
+
+	public function showbookAction()
+	{
+		$books = $this->getDoctrine()
+				->getRepository('MylibberMylibBundle:Book')
+				->findAll();
+		if (!$books) {
+			throw $this->createNotFoundException('No product found for id ');
+		}
+		return $this->render('MylibberMylibBundle:Book:list.html.twig', array(
+			'books'  => $books,
+			));
+	}
+
+	public function detailAction($id)
+	{
+		$books = $this->getDoctrine()
+				->getRepository('MylibberMylibBundle:Book')
+				->find($id);
+		if (!$books) {
+			throw $this->createNotFoundException('No product found for id ');
+		}
+		return $this->render('MylibberMylibBundle:Book:detail.html.twig', array(
+			'book'  => $books,
 			));
 	}
 }

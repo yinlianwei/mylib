@@ -15,6 +15,7 @@
             <link href="{{ asset('css/bootstrap-responsive.css') }}" rel="stylesheet" type="text/css">
             <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet" type="text/css">
 
+            <script  src="{{ asset('js/bootstrap-dropdown.js') }}" language="javascript"></script>
             <script  src="{{ asset('js/bootstrap.js') }}" language="javascript"></script>
             <script  src="{{ asset('js/bootstrap.min.js') }}" language="javascript"></script>
         {% endblock %}
@@ -32,6 +33,7 @@
                                 <li><a href="{{ path('MylibberMylibBundle_about') }}">关于</a></li>
                                 <li><a href="{{ path('MylibberMylibBundle_contact')}}">联系我们</a></li>
                                 <li><a href="{{ path('MylibberMylibBundle_search')}}">书籍搜索</a></li>
+                                <li><a href="{{ path('mylibber_backend_homepage')}}">admin</a></li>
                             </ul>
                         </nav>
                     {% endblock %}

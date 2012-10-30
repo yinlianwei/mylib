@@ -7,18 +7,133 @@ class __TwigTemplate_5d25ce45679f11c66873968707a84fc1 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("MylibberMylibBundle::layout.html.twig");
 
         $this->blocks = array(
+            'body' => array($this, 'block_body'),
+            'sidebar' => array($this, 'block_sidebar'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "MylibberMylibBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "Hello ";
-        echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
-        echo "!
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_body($context, array $blocks = array())
+    {
+        // line 4
+        echo "\t<span class=\"label label-info\">最新图书</span>
+    <article class=\"book\">
+    <p></p>
+    ";
+        // line 7
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getContext($context, "books"));
+        foreach ($context['_seq'] as $context["_key"] => $context["book"]) {
+            // line 8
+            echo "        
+    \t<div class=\"bookpic\">
+    \t\t<p><a href=\"";
+            // line 10
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
+            echo "\"><span class=\"badge badge-warning\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookName"), "html", null, true);
+            echo "</span></a></p>
+        \t<a href=\"";
+            // line 11
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
+            echo "\"><img src=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(twig_join_filter(array(0 => $this->getAttribute($this->getContext($context, "book"), "bookPic")))), "html", null, true);
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookName"), "html", null, true);
+            echo " image not found\" class=\"large\" /></a>
+        </div>
+        <div class=\"bookattribute\">
+       \t\t<p></p>
+       \t\t<br>
+        \t<p>ISBN: ";
+            // line 16
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookIsbn"), "html", null, true);
+            echo "  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        \t\t ";
+            // line 17
+            if (($this->getAttribute($this->getContext($context, "book"), "BookBorr") == 1)) {
+                echo " <span class=\"label label-success\">可借阅</span>  ";
+            } else {
+                echo "}  <span class=\"label\">不可借阅</span> ";
+            }
+            echo "</p>
+        \t<p>作者: ";
+            // line 18
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookAuthor"), "html", null, true);
+            echo " </p>
+        \t<p>定价: ";
+            // line 19
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookPrice"), "html", null, true);
+            echo "</p>
+            <p>图书类别:";
+            // line 20
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "categoryName"), "html", null, true);
+            echo "</p>
+           
+          <a href=\"";
+            // line 22
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
+            echo "\"><span class=\"label\">详细信息...</span></a>
+        </div>
+     ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['book'], $context['_parent'], $context['loop']);
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        // line 25
+        echo "    </article>
+";
+    }
+
+    // line 28
+    public function block_sidebar($context, array $blocks = array())
+    {
+        // line 29
+        echo "
+<span class=\"label label-info\">书籍检索</span>
+\t<form action=\"openlink.php\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
+\t\t<tbody>
+\t\t\t<tr>
+\t        \t<td colspan=\"2\"><input type=\"hidden\" id=\"historyCount\" name=\"historyCount\" value=\"1\">
+\t       \t\t\t<input type=\"text\" size=\"45\" maxlength=\"250\" name=\"strText\" id=\"strText\" value=\"\" class=\"paddingleft\">&nbsp;&nbsp;
+\t                    <script language=\"javascript\" type=\"text/javascript\">
+\t                        document.f.strText.focus();
+\t                    </script>
+\t      \t\t \t
+\t      \t\t</td>
+\t      \t</tr>
+\t      \t<tr>
+\t        \t<td align=\"right\">请选择检索类型：</td>
+\t        \t<td>
+\t          \t\t<select class=\"option\" name=\"strSearchType\" size=\"1\" style=\"width:100px;\">
+\t                    <option value=\"title\">题&nbsp;&nbsp;名</option>
+\t                    <option value=\"author\">责任者</option>
+\t                   \t<option value=\"isbn\">ISBN/ISSN</option>
+\t                    <option value=\"publisher\">出版社</option>
+\t                </select> 
+\t            </td>
+\t      \t</tr>
+\t      \t<tr>
+\t      \t\t<td>
+\t      \t\t\t<input type=\"submit\" class=\"submit\" value=\"检索\">
+\t      \t\t</td>
+\t      \t</tr>
+\t\t</tbody>
+
+\t</form>
 ";
     }
 
@@ -34,6 +149,6 @@ class __TwigTemplate_5d25ce45679f11c66873968707a84fc1 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  60 => 15,  38 => 9,  173 => 48,  165 => 43,  144 => 34,  132 => 26,  124 => 24,  111 => 12,  84 => 47,  54 => 31,  299 => 100,  293 => 96,  290 => 95,  287 => 94,  285 => 93,  280 => 90,  274 => 86,  271 => 85,  268 => 84,  266 => 83,  261 => 80,  247 => 79,  243 => 77,  228 => 75,  220 => 73,  218 => 72,  213 => 70,  209 => 69,  202 => 66,  196 => 63,  183 => 61,  181 => 60,  175 => 58,  158 => 57,  107 => 10,  101 => 34,  80 => 24,  63 => 35,  36 => 7,  156 => 58,  148 => 55,  142 => 50,  140 => 50,  127 => 45,  123 => 44,  115 => 42,  110 => 42,  85 => 28,  65 => 19,  59 => 15,  45 => 11,  89 => 20,  82 => 19,  103 => 24,  91 => 53,  74 => 20,  70 => 19,  66 => 18,  42 => 12,  92 => 39,  86 => 50,  77 => 43,  57 => 14,  223 => 96,  214 => 90,  210 => 88,  203 => 84,  199 => 83,  194 => 80,  192 => 62,  189 => 78,  187 => 77,  184 => 76,  178 => 53,  170 => 47,  157 => 61,  152 => 35,  145 => 53,  130 => 48,  125 => 49,  119 => 45,  116 => 44,  112 => 43,  102 => 36,  98 => 5,  76 => 24,  73 => 41,  69 => 19,  56 => 14,  32 => 5,  25 => 3,  19 => 2,  23 => 4,  26 => 4,  22 => 3,  29 => 4,  24 => 6,  17 => 1,  68 => 20,  61 => 24,  44 => 10,  20 => 2,  161 => 63,  153 => 50,  150 => 49,  147 => 51,  143 => 46,  137 => 45,  129 => 42,  121 => 47,  118 => 46,  113 => 39,  104 => 9,  99 => 33,  94 => 21,  81 => 18,  78 => 21,  72 => 16,  64 => 16,  53 => 13,  50 => 15,  48 => 10,  41 => 9,  39 => 9,  35 => 6,  33 => 6,  30 => 5,  27 => 4,  182 => 70,  176 => 71,  169 => 62,  163 => 58,  160 => 40,  155 => 56,  151 => 54,  149 => 52,  141 => 54,  136 => 27,  134 => 50,  131 => 43,  128 => 25,  120 => 22,  117 => 21,  114 => 35,  109 => 38,  106 => 37,  100 => 30,  96 => 34,  93 => 54,  90 => 28,  87 => 19,  83 => 23,  79 => 44,  71 => 40,  62 => 17,  58 => 23,  55 => 14,  52 => 13,  49 => 12,  46 => 11,  43 => 10,  40 => 9,  37 => 9,  34 => 6,  31 => 4,  28 => 7,);
+        return array (  103 => 29,  100 => 28,  95 => 25,  86 => 22,  81 => 20,  77 => 19,  73 => 18,  65 => 17,  61 => 16,  49 => 11,  43 => 10,  39 => 8,  35 => 7,  30 => 4,  27 => 3,);
     }
 }

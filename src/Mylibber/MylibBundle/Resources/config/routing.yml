@@ -3,7 +3,7 @@ mylibber_mylib_homepage:
     defaults: { _controller: MylibberMylibBundle:Default:index }
 MylibberMylibBundle_homepage: 
     pattern :   / 
-    defaults :  {  _controller: MylibberMylibBundle:Page:index  } 
+    defaults :  {  _controller: MylibberMylibBundle:Default:index  } 
     requirements : 
         _method :   GET
 
@@ -30,3 +30,15 @@ MylibberMylibBundle_book_add:
 MylibberMylibBundle_search:
     pattern:   /search
     defaults:  {_controller: MylibberMylibBundle:Book:search}
+
+MylibberMylibBundle_search:
+    pattern:   /showbook
+    defaults:  {_controller: MylibberMylibBundle:Book:showbook}
+
+MylibberMylibBundle_list:
+    pattern:   /list
+    defaults:  {_controller: MylibberMylibBundle:Book:showbook}
+
+MylibberMylibBundle_detail:
+    pattern:   /detail/{id}
+    defaults:  {_controller: MylibberMylibBundle:Book:detail}

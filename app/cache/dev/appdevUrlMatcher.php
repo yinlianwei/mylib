@@ -168,6 +168,46 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\DefaultController::indexAction',  '_route' => 'mylibber_backend_homepage',);
         }
 
+        // mylibber_backend_addbook
+        if ($pathinfo === '/addbook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::addAction',  '_route' => 'mylibber_backend_addbook',);
+        }
+
+        // mylibber_backend_addnew
+        if ($pathinfo === '/addnew') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::addnewAction',  '_route' => 'mylibber_backend_addnew',);
+        }
+
+        // mylibber_backend_borrbook
+        if ($pathinfo === '/borrbook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::borrAction',  '_route' => 'mylibber_backend_borrbook',);
+        }
+
+        // mylibber_backend_retbook
+        if ($pathinfo === '/retbook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::retAction',  '_route' => 'mylibber_backend_retbook',);
+        }
+
+        // mylibber_backend_histbook
+        if ($pathinfo === '/histbook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::histAction',  '_route' => 'mylibber_backend_histbook',);
+        }
+
+        // mylibber_backend_usermanage
+        if ($pathinfo === '/usermanage') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::usermanageAction',  '_route' => 'mylibber_backend_usermanage',);
+        }
+
+        // mylibber_backend_config
+        if ($pathinfo === '/config') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::configAction',  '_route' => 'mylibber_backend_config',);
+        }
+
+        // success
+        if ($pathinfo === '/success') {
+            return array (  '_controller' => 'MylibberBackendBundle:User:success',  '_route' => 'success',);
+        }
+
         // mylibber_mylib_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'mylibber_mylib_homepage'));
@@ -184,7 +224,7 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', 'MylibberMylibBundle_homepage');
             }
 
-            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::indexAction',  '_route' => 'MylibberMylibBundle_homepage',);
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',  '_route' => 'MylibberMylibBundle_homepage',);
         }
         not_MylibberMylibBundle_homepage:
 
@@ -221,8 +261,18 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // MylibberMylibBundle_search
-        if ($pathinfo === '/search') {
-            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::searchAction',  '_route' => 'MylibberMylibBundle_search',);
+        if ($pathinfo === '/showbook') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showbookAction',  '_route' => 'MylibberMylibBundle_search',);
+        }
+
+        // MylibberMylibBundle_list
+        if ($pathinfo === '/list') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showbookAction',  '_route' => 'MylibberMylibBundle_list',);
+        }
+
+        // MylibberMylibBundle_detail
+        if (0 === strpos($pathinfo, '/detail') && preg_match('#^/detail/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::detailAction',)), array('_route' => 'MylibberMylibBundle_detail'));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

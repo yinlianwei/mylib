@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('MylibberBackendBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function successAction()
+    {
+    	return $this->render('MylibberBackendBundle:Default:success.html.twig');
+    }
 }

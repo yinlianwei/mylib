@@ -39,7 +39,7 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         ";
         // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 21
+        // line 22
         echo "        <link rel=\"shortcut icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
@@ -50,18 +50,18 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
             <header id=\"header\">
                 <div class=\"top\">
                     ";
-        // line 28
+        // line 29
         $this->displayBlock('navigation', $context, $blocks);
-        // line 38
+        // line 40
         echo "                </div>
 
                 <hgroup>
                     <h4>";
-        // line 41
+        // line 43
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h4>
                     <h5>";
-        // line 42
+        // line 44
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h5>
                 </hgroup>
@@ -69,29 +69,29 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
 
             <section class=\"main-col\">
                 ";
-        // line 47
+        // line 49
         $this->displayBlock('body', $context, $blocks);
-        // line 48
+        // line 50
         echo "            </section>
             <aside class=\"sidebar\">
                 ";
-        // line 50
+        // line 52
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 51
+        // line 53
         echo "            </aside>
 
             <div id=\"footer\">
                 ";
-        // line 54
+        // line 56
         $this->displayBlock('footer', $context, $blocks);
-        // line 57
+        // line 59
         echo "            </div>
         </section>
 
         ";
-        // line 60
+        // line 62
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 61
+        // line 63
         echo "    </body>
 </html>";
     }
@@ -131,43 +131,51 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
 
             <script  src=\"";
         // line 18
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap-dropdown.js"), "html", null, true);
         echo "\" language=\"javascript\"></script>
             <script  src=\"";
         // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.js"), "html", null, true);
+        echo "\" language=\"javascript\"></script>
+            <script  src=\"";
+        // line 20
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\" language=\"javascript\"></script>
         ";
     }
 
-    // line 28
+    // line 29
     public function block_navigation($context, array $blocks = array())
     {
-        // line 29
+        // line 30
         echo "                        <nav>
                             <ul class=\"navigation\">
                                 <li><a href=\"";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_homepage"), "html", null, true);
         echo "\">主页</a></li>
                                 <li><a href=\"";
-        // line 32
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_about"), "html", null, true);
         echo "\">关于</a></li>
                                 <li><a href=\"";
-        // line 33
+        // line 34
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_contact"), "html", null, true);
         echo "\">联系我们</a></li>
                                 <li><a href=\"";
-        // line 34
+        // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
         echo "\">书籍搜索</a></li>
+                                <li><a href=\"";
+        // line 36
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_homepage"), "html", null, true);
+        echo "\">admin</a></li>
                             </ul>
                         </nav>
                     ";
     }
 
-    // line 41
+    // line 43
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -175,7 +183,7 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         echo "\">网上图书馆</a>";
     }
 
-    // line 42
+    // line 44
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -183,25 +191,25 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         echo "\">Books management system in symfony2</a>";
     }
 
-    // line 47
+    // line 49
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 50
+    // line 52
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 54
+    // line 56
     public function block_footer($context, array $blocks = array())
     {
-        // line 55
+        // line 57
         echo "                    Symfony2 mylib - created by <a href=\"https://www.github.com/yinlianwei/\">Evenvi</a>
                 ";
     }
 
-    // line 60
+    // line 62
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -218,6 +226,6 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  203 => 60,  198 => 55,  195 => 54,  190 => 50,  185 => 47,  177 => 42,  169 => 41,  161 => 34,  157 => 33,  153 => 32,  149 => 31,  145 => 29,  142 => 28,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 61,  91 => 60,  86 => 57,  84 => 54,  79 => 51,  77 => 50,  73 => 48,  71 => 47,  63 => 42,  59 => 41,  54 => 38,  52 => 28,  41 => 21,  39 => 9,  32 => 5,  26 => 1,);
+        return array (  211 => 62,  206 => 57,  203 => 56,  198 => 52,  193 => 49,  185 => 44,  177 => 43,  169 => 36,  165 => 35,  161 => 34,  157 => 33,  153 => 32,  149 => 30,  146 => 29,  140 => 20,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 63,  91 => 62,  86 => 59,  84 => 56,  79 => 53,  77 => 52,  73 => 50,  71 => 49,  63 => 44,  59 => 43,  54 => 40,  52 => 29,  41 => 22,  39 => 9,  32 => 5,  26 => 1,);
     }
 }
