@@ -1,0 +1,62 @@
+{% extends 'MylibberMylibBundle::layout.html.twig' %}
+{% block body %}
+	<span class="label label-info">详细信息</span>
+    <article class="book">
+    <p></p>  
+    	<div class="detailbookpic">
+    		<p><span class="badge badge-warning">{{ book.bookName }}</span></p>
+        	<img src="{{ asset([book.bookPic]|join) }}" alt="{{ book.bookName }} image not found" class="large" />
+        </div>
+        <div class="detailbookattribute">
+       		<p></p>
+       		<br>
+       		<p>名称:{{ book.bookName }}</p>
+        	<p>ISBN: {{ book.bookIsbn }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        		 {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %}}  <span class="label">不可借阅</span> {% endif %}</p>
+        	<p>作者: {{ book.bookAuthor}} </p>
+        	<p>定价: {{book.bookPrice}}</p>
+            <p>图书类别:{{ book.categoryName }}</p>
+            <p>{{ book.bookContent }}</p>
+            <span class="label label-info"><a href="{{ path('MylibberMylibBundle_homepage') }}">返回</a></span>
+        </div>
+    </article>
+{% endblock %}
+
+{% block sidebar %}
+
+<span class="label label-info">书籍检索</span>
+	<form action="openlink.php" method="get" name="f" onsubmit="return chkForm(this)" id="f">
+		<tbody>
+			<tr>
+	        	<td colspan="2"><input type="hidden" id="historyCount" name="historyCount" value="1">
+	       			<input type="text" size="45" maxlength="250" name="strText" id="strText" value="" class="paddingleft">&nbsp;&nbsp;
+	                    <script language="javascript" type="text/javascript">
+	                        document.f.strText.focus();
+	                    </script>
+	      		 	
+	      		</td>
+	      	</tr>
+	      	<tr>
+	        	<td align="right">请选择检索类型：</td>
+	        	<td>
+	          		<select class="option" name="strSearchType" size="1" style="width:100px;">
+	                    <option value="title">题&nbsp;&nbsp;名</option>
+	                    <option value="author">责任者</option>
+	                   	<option value="isbn">ISBN/ISSN</option>
+	                    <option value="publisher">出版社</option>
+	                </select> 
+	            </td>
+	      	</tr>
+	      	<tr>
+	      		<td>
+	      			<input type="submit" class="submit" value="检索">
+	      		</td>
+	      	</tr>
+		</tbody>
+
+	</form>
+{% endblock %}
+
+
+
+
