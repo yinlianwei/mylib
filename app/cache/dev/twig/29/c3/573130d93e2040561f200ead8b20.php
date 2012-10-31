@@ -39,7 +39,7 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
         ";
         // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 21
+        // line 22
         echo "        <link rel=\"shortcut icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
@@ -50,48 +50,48 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
             <header id=\"header\">
                 <div class=\"top\">
                     ";
-        // line 28
+        // line 29
         $this->displayBlock('navigation', $context, $blocks);
-        // line 39
+        // line 40
         echo "                </div>
 
                 <hgroup>
                     <h4>";
-        // line 42
+        // line 43
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h4>
                     <h5>";
-        // line 43
+        // line 44
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h5>
                 </hgroup>
             </header>
             <aside class=\"sidebar\">
                 ";
-        // line 47
-        $this->displayBlock('sidebar', $context, $blocks);
         // line 48
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 49
         echo "            </aside>
             <section class=\"main-col\">
                 ";
-        // line 50
-        $this->displayBlock('body', $context, $blocks);
         // line 51
+        $this->displayBlock('body', $context, $blocks);
+        // line 52
         echo "            </section>
 
 
             <div id=\"footer\">
                 ";
-        // line 55
+        // line 56
         $this->displayBlock('footer', $context, $blocks);
-        // line 58
+        // line 59
         echo "            </div>
         </section>
 
         ";
-        // line 61
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 62
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 63
         echo "    </body>
 </html>";
     }
@@ -137,33 +137,37 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
         // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\" language=\"javascript\"></script>
+            <script  src=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap-modal.js"), "html", null, true);
+        echo "\" language=\"javascript\"></script>
         ";
     }
 
-    // line 28
+    // line 29
     public function block_navigation($context, array $blocks = array())
     {
-        // line 29
+        // line 30
         echo "                        <nav>
                             <ul class=\"navigation\">
                                 <li><a href=\"";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_homepage"), "html", null, true);
         echo "\">主页</a></li>
                                 <li><a href=\"";
-        // line 32
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_about"), "html", null, true);
         echo "\">关于</a></li>
                                 <li><a href=\"";
-        // line 33
+        // line 34
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_contact"), "html", null, true);
         echo "\">联系我们</a></li>
                                 <li><a href=\"";
-        // line 34
+        // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
         echo "\">书籍搜索</a></li>
                                 <li><a href=\"";
-        // line 35
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_homepage"), "html", null, true);
         echo "\">admin</a></li>
                             </ul>
@@ -171,7 +175,7 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
                     ";
     }
 
-    // line 42
+    // line 43
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -179,31 +183,31 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
         echo "\">图书管理系统</a>";
     }
 
-    // line 43
+    // line 44
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "Books management system in symfony2";
     }
 
-    // line 47
+    // line 48
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 50
+    // line 51
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 55
+    // line 56
     public function block_footer($context, array $blocks = array())
     {
-        // line 56
+        // line 57
         echo "                    Symfony2 mylib - created by <a href=\"https://www.github.com/yinlianwei/\">Evenvi</a>
                 ";
     }
 
-    // line 61
+    // line 62
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -220,6 +224,6 @@ class __TwigTemplate_29c3573130d93e2040561f200ead8b20 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  205 => 61,  200 => 56,  197 => 55,  192 => 50,  187 => 47,  181 => 43,  173 => 42,  165 => 35,  161 => 34,  157 => 33,  153 => 32,  149 => 31,  145 => 29,  142 => 28,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 62,  91 => 61,  86 => 58,  84 => 55,  78 => 51,  76 => 50,  72 => 48,  70 => 47,  63 => 43,  59 => 42,  54 => 39,  52 => 28,  41 => 21,  39 => 9,  32 => 5,  26 => 1,);
+        return array (  209 => 62,  204 => 57,  201 => 56,  196 => 51,  191 => 48,  185 => 44,  177 => 43,  169 => 36,  165 => 35,  161 => 34,  157 => 33,  153 => 32,  149 => 30,  146 => 29,  140 => 20,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 63,  91 => 62,  86 => 59,  84 => 56,  78 => 52,  76 => 51,  72 => 49,  70 => 48,  63 => 44,  59 => 43,  54 => 40,  52 => 29,  41 => 22,  39 => 9,  32 => 5,  26 => 1,);
     }
 }

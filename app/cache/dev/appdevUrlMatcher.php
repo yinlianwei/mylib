@@ -183,11 +183,6 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::borrAction',  '_route' => 'mylibber_backend_borrbook',);
         }
 
-        // mylibber_backend_retbook
-        if ($pathinfo === '/retbook') {
-            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::retAction',  '_route' => 'mylibber_backend_retbook',);
-        }
-
         // mylibber_backend_histbook
         if ($pathinfo === '/histbook') {
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::histAction',  '_route' => 'mylibber_backend_histbook',);
@@ -205,7 +200,42 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // success
         if ($pathinfo === '/success') {
-            return array (  '_controller' => 'MylibberBackendBundle:User:success',  '_route' => 'success',);
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::successAction',  '_route' => 'success',);
+        }
+
+        // mylibber_backend_addCategory
+        if ($pathinfo === '/addCategory') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\CategoryController::addCategoryAction',  '_route' => 'mylibber_backend_addCategory',);
+        }
+
+        // mylibber_backend_addCategoryNew
+        if ($pathinfo === '/addCategoryNew') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\CategoryController::addCategoryNewAction',  '_route' => 'mylibber_backend_addCategoryNew',);
+        }
+
+        // mylibber_backend_deleteCategory
+        if (0 === strpos($pathinfo, '/deleteCategory') && preg_match('#^/deleteCategory/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\CategoryController::deleteCategoryAction',)), array('_route' => 'mylibber_backend_deleteCategory'));
+        }
+
+        // mylibber_backend_addUser
+        if ($pathinfo === '/addUser') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::addUserAction',  '_route' => 'mylibber_backend_addUser',);
+        }
+
+        // mylibber_backend_addUserNew
+        if ($pathinfo === '/addUserNew') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::addUserNewAction',  '_route' => 'mylibber_backend_addUserNew',);
+        }
+
+        // mylibber_backend_deleteUser
+        if (0 === strpos($pathinfo, '/deleteUser') && preg_match('#^/deleteUser/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::deleteUserAction',)), array('_route' => 'mylibber_backend_deleteUser'));
+        }
+
+        // mylibber_backend_updateUser
+        if (0 === strpos($pathinfo, '/updateUser') && preg_match('#^/updateUser/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::updateUserAction',)), array('_route' => 'mylibber_backend_updateUser'));
         }
 
         // mylibber_mylib_homepage

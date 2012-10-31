@@ -21,11 +21,12 @@ class Category
      */
     private $id;
 
-     /**
-     * @ORM\OneToMany(targetEntity="Book", mappedBy="category")
+    /**
+     * @var string $categoryName
+     *
+     * @ORM\Column(name="categoryName", type="string", length=255)
      */
-    private $bookName;
-
+    private $categoryName;
 
     /**
      * Get id
@@ -58,10 +59,5 @@ class Category
     public function getCategoryName()
     {
         return $this->categoryName;
-    }
-
-     public function __construct()
-    {
-        $this->products = new ArrayCollection();
     }
 }

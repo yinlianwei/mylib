@@ -12,8 +12,9 @@
             <span class="label">书籍名称:</span>{{ book.bookName }}&nbsp;&nbsp;
             <span class="label">作者:</span> {{ book.bookAuthor}}&nbsp;&nbsp;
             <span class="label">ISBN:</span> {{ book.bookIsbn}}&nbsp;&nbsp;
-            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %}}  <span class="label">不可借阅</span> {% endif %}
+            </span>
+            {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %} <span class="label">不可借阅</span> {% endif %}
+            <a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><span class="badge badge-info">详细信息...</span></a>
     </div>
 
 {% endfor %}

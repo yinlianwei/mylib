@@ -12,13 +12,8 @@
   	</li>
   	<li>
     	<a href="{{ path('mylibber_backend_borrbook')}}">
-      		<i class="icon-backward"></i>图书借出
+      		<i class="icon-gift"></i>图书借阅
     	</a>
-   	</li>
-   	<li>
-    	<a href="{{ path('mylibber_backend_retbook')}}">
-      		<i class="icon-gift"></i>图书归还
-   		</a>
    	</li>
    	<li>
    		<a href="{{ path('mylibber_backend_addbook')}}">
@@ -33,8 +28,13 @@
   	<li class="active">
     	<a href="#"><i class = "icon-check"></i>其他配置</a>
   	</li>
+        <li>
+        <a href="{{ path('mylibber_backend_addCategory')}}">
+          <i class="icon-flag"></i>类别管理
+      </a>
+    </li>
     <li>
-      	<a href="{{ path('mylibber_backend_usermanage')}}">
+      	<a href="{{ path('mylibber_backend_addUser')}}">
       		<i class="icon-user"></i>用户管理
     	</a>
     </li>

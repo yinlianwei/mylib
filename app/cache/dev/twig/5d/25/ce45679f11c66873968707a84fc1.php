@@ -67,7 +67,7 @@ class __TwigTemplate_5d25ce45679f11c66873968707a84fc1 extends Twig_Template
             if (($this->getAttribute($this->getContext($context, "book"), "BookBorr") == 1)) {
                 echo " <span class=\"label label-success\">可借阅</span>  ";
             } else {
-                echo "}  <span class=\"label\">不可借阅</span> ";
+                echo " <span class=\"label\">不可借阅</span> ";
             }
             echo "</p>
         \t<p>作者: ";

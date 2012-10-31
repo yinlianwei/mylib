@@ -22,6 +22,13 @@ class Borr
     private $id;
 
     /**
+     * @var string $bookName
+     *
+     * @ORM\Column(name="bookName", type="string", length=255)
+     */
+    private $bookName;
+
+    /**
      * @var string $bookIsbn
      *
      * @ORM\Column(name="bookIsbn", type="string", length=255)

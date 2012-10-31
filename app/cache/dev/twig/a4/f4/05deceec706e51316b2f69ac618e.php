@@ -65,23 +65,26 @@ class __TwigTemplate_a4f405deceec706e51316b2f69ac618e extends Twig_Template
             // line 14
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookIsbn"), "html", null, true);
             echo "&nbsp;&nbsp;
-            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
             ";
             // line 16
             if (($this->getAttribute($this->getContext($context, "book"), "BookBorr") == 1)) {
                 echo " <span class=\"label label-success\">可借阅</span>  ";
             } else {
-                echo "}  <span class=\"label\">不可借阅</span> ";
+                echo " <span class=\"label\">不可借阅</span> ";
             }
             // line 17
-            echo "    </div>
+            echo "            <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
+            echo "\"><span class=\"badge badge-info\">详细信息...</span></a>
+    </div>
 
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['book'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 20
+        // line 21
         echo "
        
 
@@ -89,10 +92,10 @@ class __TwigTemplate_a4f405deceec706e51316b2f69ac618e extends Twig_Template
 ";
     }
 
-    // line 25
+    // line 26
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 26
+        // line 27
         echo "
 <span class=\"label label-info\">书籍检索</span>
     <form action=\"openlink.php\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
@@ -140,6 +143,6 @@ class __TwigTemplate_a4f405deceec706e51316b2f69ac618e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  94 => 26,  91 => 25,  83 => 20,  75 => 17,  69 => 16,  64 => 14,  60 => 13,  56 => 12,  52 => 11,  49 => 10,  46 => 9,  42 => 8,  40 => 7,  37 => 6,  34 => 5,  28 => 3,);
+        return array (  97 => 27,  94 => 26,  86 => 21,  75 => 17,  69 => 16,  64 => 14,  60 => 13,  56 => 12,  52 => 11,  49 => 10,  46 => 9,  42 => 8,  40 => 7,  37 => 6,  34 => 5,  28 => 3,);
     }
 }

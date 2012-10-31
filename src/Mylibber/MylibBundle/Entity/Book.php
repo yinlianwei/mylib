@@ -70,12 +70,6 @@ class Book
      */
     private $bookIsbn;
 
-    /**
-     * @var string $bookBorrHis
-     *
-     * @ORM\Column(name="bookBorrHis", type="text")
-     */
-    private $bookBorrHis;
 
      /**
      * @var string $bookBorr
@@ -83,6 +77,7 @@ class Book
      * @ORM\Column(name="bookBorr", type="integer")
      */
     private $bookBorr;
+
 
 
 
@@ -280,10 +275,10 @@ class Book
         return $this->bookBorrHis;
     }
 
- /**
+    /**
      * Set bookBorr
      *
-     * @param string $bookBorrHis
+     * @param string $bookBorr
      * @return Book
      */
     public function setBookBorr($bookBorr)

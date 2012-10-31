@@ -17,10 +17,6 @@ mylibber_backend_borrbook:
     pattern:  /borrbook
     defaults: { _controller: MylibberBackendBundle:Book:borr  }
 
-mylibber_backend_retbook:
-    pattern:  /retbook
-    defaults: { _controller: MylibberBackendBundle:Book:ret  }
-
 mylibber_backend_histbook:
     pattern:  /histbook
     defaults: { _controller: MylibberBackendBundle:Book:hist  }
@@ -37,3 +33,30 @@ mylibber_backend_config:
 success:
    pattern: /success
    defaults: { _controller: MylibberBackendBundle:User:success }
+
+
+mylibber_backend_addCategory:
+    pattern:   /addCategory
+    defaults:  { _controller: MylibberBackendBundle:Category:addCategory }
+
+mylibber_backend_addCategoryNew:
+    pattern:   /addCategoryNew
+    defaults:  { _controller: MylibberBackendBundle:Category:addCategoryNew }
+
+mylibber_backend_deleteCategory:
+    pattern:   /deleteCategory/{id}
+    defaults:  { _controller: MylibberBackendBundle:Category:deleteCategory }
+
+
+mylibber_backend_addUser:
+    pattern:   /addUser
+    defaults:  { _controller: MylibberBackendBundle:User:addUser }
+mylibber_backend_addUserNew:
+    pattern:   /addUserNew
+    defaults:  { _controller: MylibberBackendBundle:User:addUserNew }
+mylibber_backend_deleteUser:
+    pattern:   /deleteUser/{id}
+    defaults:  { _controller: MylibberBackendBundle:User:deleteUser }
+mylibber_backend_updateUser:
+    pattern:   /updateUser/{id}
+    defaults:  { _controller: MylibberBackendBundle:User:updateUser }

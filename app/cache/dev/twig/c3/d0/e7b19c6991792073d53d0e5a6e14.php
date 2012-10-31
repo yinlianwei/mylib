@@ -52,20 +52,12 @@ class __TwigTemplate_c3d0e7b19c6991792073d53d0e5a6e14 extends Twig_Template
         // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrbook"), "html", null, true);
         echo "\">
-      \t\t<i class=\"icon-backward\"></i>图书借出
+      \t\t<i class=\"icon-gift\"></i>图书借阅
     \t</a>
    \t</li>
    \t<li>
-    \t<a href=\"";
-        // line 19
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_retbook"), "html", null, true);
-        echo "\">
-      \t\t<i class=\"icon-gift\"></i>图书归还
-   \t\t</a>
-   \t</li>
-   \t<li>
    \t\t<a href=\"";
-        // line 24
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_addbook"), "html", null, true);
         echo "\">
       \t\t<i class=\"icon-book\"></i>图书录入
@@ -73,7 +65,7 @@ class __TwigTemplate_c3d0e7b19c6991792073d53d0e5a6e14 extends Twig_Template
    \t</li> 
    \t<li>
    \t\t<a href=\"";
-        // line 29
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_histbook"), "html", null, true);
         echo "\">
       \t\t<i class=\"icon-list\"></i>借阅历史
@@ -82,10 +74,18 @@ class __TwigTemplate_c3d0e7b19c6991792073d53d0e5a6e14 extends Twig_Template
   \t<li class=\"active\">
     \t<a href=\"#\"><i class = \"icon-check\"></i>其他配置</a>
   \t</li>
+        <li>
+        <a href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_addCategory"), "html", null, true);
+        echo "\">
+          <i class=\"icon-flag\"></i>类别管理
+      </a>
+    </li>
     <li>
       \t<a href=\"";
         // line 37
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_usermanage"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_addUser"), "html", null, true);
         echo "\">
       \t\t<i class=\"icon-user\"></i>用户管理
     \t</a>
@@ -114,6 +114,6 @@ class __TwigTemplate_c3d0e7b19c6991792073d53d0e5a6e14 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  94 => 42,  86 => 37,  75 => 29,  67 => 24,  59 => 19,  51 => 14,  44 => 9,  41 => 8,  35 => 5,  30 => 4,  27 => 3,);
+        return array (  94 => 42,  86 => 37,  78 => 32,  67 => 24,  59 => 19,  51 => 14,  44 => 9,  41 => 8,  35 => 5,  30 => 4,  27 => 3,);
     }
 }

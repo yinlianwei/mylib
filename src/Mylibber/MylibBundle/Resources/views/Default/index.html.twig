@@ -14,7 +14,7 @@
        		<p></p>
        		<br>
         	<p>ISBN: {{ book.bookIsbn }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        		 {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %}}  <span class="label">不可借阅</span> {% endif %}</p>
+        		 {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %} <span class="label">不可借阅</span> {% endif %}</p>
         	<p>作者: {{ book.bookAuthor}} </p>
         	<p>定价: {{book.bookPrice}}</p>
             <p>图书类别:{{ book.categoryName }}</p>

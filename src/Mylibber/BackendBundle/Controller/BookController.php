@@ -23,6 +23,7 @@ class BookController extends Controller
 			->add('bookPic')
 			->add('bookContent')
 			->add('bookIsbn')
+			->add('bookBorr')
 			->getForm();	
 
 		return $this->render('MylibberBackendBundle:Book:add.html.twig',
@@ -33,7 +34,7 @@ class BookController extends Controller
 
 	public function addnewAction(Request $request)
 	{
-		$book = new Book;
+		$book = new Book();
 
 		$form = $this->createFormBuilder($book)
 			->add('bookName')
@@ -43,26 +44,37 @@ class BookController extends Controller
 			->add('bookPic')
 			->add('bookContent')
 			->add('bookIsbn')
+			->add('bookBorr')
 			->getForm();	
+		//$form = $this->createForm()
+
+		$request = $this->getRequest();
 
 		if ($request->getMethod() == "POST") {
 			$form->bindRequest($request);
 
 			if ($form->isValid()) {
-				return $this->redirect($this->generateUrl('success'));
+				$em = $this->getDoctrine()->getEntityManager();
+	            $em->persist($book);
+	            $em->flush();
 			}
 		}
-
+		return $this->redirect($this->generateUrl('mylibber_backend_addnew'));
 	}
 
 	public function borrAction()
-	{
-		return $this->render('MylibberBackendBundle:Book:borr.html.twig');
+	{	
+		$borrs = $this->getDoctrine()
+				->getRepository('MylibberMylibBundle:Book')
+				->findAll();
+		if (!$borrs) {
+			throw $this->createNotFoundException('No borr book found for id ');
+		}
+		return $this->render('MylibberBackendBundle:Book:borr.html.twig', array(
+			'borrs'  => $borrs,
+			));
 	}
-	public function retAction()
-	{
-		return $this->render('MylibberBackendBundle:Book:ret.html.twig');
-	}
+
 	public function histAction()
 	{
 		return $this->render('MylibberBackendBundle:Book:hist.html.twig');
