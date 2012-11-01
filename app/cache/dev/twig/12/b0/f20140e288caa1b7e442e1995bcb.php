@@ -26,7 +26,7 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
     {
         // line 1
         echo "<!DOCTYPE html>
-<html>
+<html lang=\"en\">
     <head>
         <meta http-equiv=\"Content-Type\" content=\"text/html\"; charset=utf-8\" />
         <title>";
@@ -52,16 +52,16 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
                     ";
         // line 29
         $this->displayBlock('navigation', $context, $blocks);
-        // line 40
+        // line 38
         echo "                </div>
 
                 <hgroup>
                     <h4>";
-        // line 43
+        // line 41
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h4>
                     <h5>";
-        // line 44
+        // line 42
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h5>
                 </hgroup>
@@ -69,29 +69,29 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
 
             <section class=\"main-col\">
                 ";
-        // line 49
+        // line 47
         $this->displayBlock('body', $context, $blocks);
-        // line 50
+        // line 48
         echo "            </section>
             <aside class=\"sidebar\">
                 ";
-        // line 52
+        // line 50
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 53
+        // line 51
         echo "            </aside>
 
             <div id=\"footer\">
                 ";
-        // line 56
+        // line 54
         $this->displayBlock('footer', $context, $blocks);
-        // line 59
+        // line 57
         echo "            </div>
         </section>
 
         ";
-        // line 62
+        // line 60
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 63
+        // line 61
         echo "    </body>
 </html>";
     }
@@ -160,14 +160,6 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         echo "\">关于</a></li>
                                 <li><a href=\"";
         // line 34
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_contact"), "html", null, true);
-        echo "\">联系我们</a></li>
-                                <li><a href=\"";
-        // line 35
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
-        echo "\">书籍搜索</a></li>
-                                <li><a href=\"";
-        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_homepage"), "html", null, true);
         echo "\">admin</a></li>
                             </ul>
@@ -175,7 +167,7 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
                     ";
     }
 
-    // line 43
+    // line 41
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -183,7 +175,7 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         echo "\">网上图书馆</a>";
     }
 
-    // line 44
+    // line 42
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -191,25 +183,25 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
         echo "\">Books management system in symfony2</a>";
     }
 
-    // line 49
+    // line 47
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 52
+    // line 50
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 56
+    // line 54
     public function block_footer($context, array $blocks = array())
     {
-        // line 57
+        // line 55
         echo "                    Symfony2 mylib - created by <a href=\"https://www.github.com/yinlianwei/\">Evenvi</a>
                 ";
     }
 
-    // line 62
+    // line 60
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -226,6 +218,6 @@ class __TwigTemplate_12b0f20140e288caa1b7e442e1995bcb extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  211 => 62,  206 => 57,  203 => 56,  198 => 52,  193 => 49,  185 => 44,  177 => 43,  169 => 36,  165 => 35,  161 => 34,  157 => 33,  153 => 32,  149 => 30,  146 => 29,  140 => 20,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 63,  91 => 62,  86 => 59,  84 => 56,  79 => 53,  77 => 52,  73 => 50,  71 => 49,  63 => 44,  59 => 43,  54 => 40,  52 => 29,  41 => 22,  39 => 9,  32 => 5,  26 => 1,);
+        return array (  203 => 60,  198 => 55,  195 => 54,  190 => 50,  185 => 47,  177 => 42,  169 => 41,  161 => 34,  157 => 33,  153 => 32,  149 => 30,  146 => 29,  140 => 20,  136 => 19,  132 => 18,  127 => 16,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 10,  104 => 9,  98 => 5,  93 => 61,  91 => 60,  86 => 57,  84 => 54,  79 => 51,  77 => 50,  73 => 48,  71 => 47,  63 => 42,  59 => 41,  54 => 38,  52 => 29,  41 => 22,  39 => 9,  32 => 5,  26 => 1,);
     }
 }

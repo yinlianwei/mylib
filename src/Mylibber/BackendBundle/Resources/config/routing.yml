@@ -13,9 +13,7 @@ mylibber_backend_addnew:
     pattern:  /addnew
     defaults: { _controller: MylibberBackendBundle:Book:addnew  }
 
-mylibber_backend_borrbook:
-    pattern:  /borrbook
-    defaults: { _controller: MylibberBackendBundle:Book:borr  }
+
 
 mylibber_backend_histbook:
     pattern:  /histbook
@@ -60,3 +58,15 @@ mylibber_backend_deleteUser:
 mylibber_backend_updateUser:
     pattern:   /updateUser/{id}
     defaults:  { _controller: MylibberBackendBundle:User:updateUser }
+
+
+mylibber_backend_borrbook:
+    pattern:  /borrbook
+    defaults: { _controller: MylibberBackendBundle:Borr:borr  }
+mylibber_backend_borrform:
+    pattern:   /borrForm/{id}
+    defaults:  { _controller: MylibberBackendBundle:Borr:borrForm }
+
+mylibber_backend_newBorrBook:
+    pattern:   /newBorrBook
+    defaults: { _controller: MylibberBackendBundle:Borr:newBorrBook }

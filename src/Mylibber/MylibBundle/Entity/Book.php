@@ -81,6 +81,7 @@ class Book
 
 
 
+
     /**
      * Get id
      *
@@ -297,5 +298,54 @@ class Book
     {
         return $this->bookBorr;
     }
+
+    /**
+     * Set uName
+     *
+     * @param string $uName
+     * @return Book
+     */
+    public function setUName($uName)
+    {
+        $this->uName = $uName;
+    
+        return $this;
+    }
+
+    /**
+     * Get uName
+     *
+     * @return string 
+     */
+    public function getUName()
+    {
+        return $this->uName;
+    }
+
+    /**
+     * Set bookHist
+     *
+     * @param string $bookHist
+     * @return Book
+     */
+    public function setBookHist($bookHist)
+    {
+        $this->bookHist = $bookHist;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookHist
+     *
+     * @return string 
+     */
+    public function getBookHist()
+    {
+        return $this->bookHist;
+    }
+
+
+
 
 }

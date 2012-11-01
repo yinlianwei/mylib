@@ -178,11 +178,6 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::addnewAction',  '_route' => 'mylibber_backend_addnew',);
         }
 
-        // mylibber_backend_borrbook
-        if ($pathinfo === '/borrbook') {
-            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::borrAction',  '_route' => 'mylibber_backend_borrbook',);
-        }
-
         // mylibber_backend_histbook
         if ($pathinfo === '/histbook') {
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::histAction',  '_route' => 'mylibber_backend_histbook',);
@@ -238,6 +233,21 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::updateUserAction',)), array('_route' => 'mylibber_backend_updateUser'));
         }
 
+        // mylibber_backend_borrbook
+        if ($pathinfo === '/borrbook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::borrAction',  '_route' => 'mylibber_backend_borrbook',);
+        }
+
+        // mylibber_backend_borrform
+        if (0 === strpos($pathinfo, '/borrForm') && preg_match('#^/borrForm/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::borrFormAction',)), array('_route' => 'mylibber_backend_borrform'));
+        }
+
+        // mylibber_backend_newBorrBook
+        if ($pathinfo === '/newBorrBook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::newBorrBookAction',  '_route' => 'mylibber_backend_newBorrBook',);
+        }
+
         // mylibber_mylib_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'mylibber_mylib_homepage'));
@@ -291,8 +301,13 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // MylibberMylibBundle_search
+        if ($pathinfo === '/bookSearch') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::bookSearchAction',  '_route' => 'MylibberMylibBundle_search',);
+        }
+
+        // MylibberMylibBundle_showbook
         if ($pathinfo === '/showbook') {
-            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showbookAction',  '_route' => 'MylibberMylibBundle_search',);
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showbookAction',  '_route' => 'MylibberMylibBundle_showbook',);
         }
 
         // MylibberMylibBundle_list

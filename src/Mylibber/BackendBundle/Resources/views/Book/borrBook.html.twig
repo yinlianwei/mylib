@@ -1,0 +1,12 @@
+{% extends 'MylibberBackendBundle::layout.html.twig' %}
+{% block title %} borrow books {% endblock %}
+
+{% block body %}
+<form action="{{ path('mylibber_backend_newBorrBook')}}" method="post" {{ form_enctype(form) }} class="bloger"> 
+		    {{ form_widget(form) }} 
+		 
+		    <input type="submit" /> 
+		</form> 
+
+
+{% endblock %}

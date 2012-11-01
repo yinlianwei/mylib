@@ -1,0 +1,13 @@
+{% extends 'MylibberBackendBundle::layout.html.twig' %}
+
+  {% block body %}
+
+ 		{% for category in categories %}
+ 			<li><span class="label label-info">{{ category.categoryName }}</span><a href="{{ path('mylibber_backend_deleteCategory',{'id':category.Id})}}"><span class="label label-important">删除</span></a></li><br>
+ 		{% endfor %}
+		<form action="{{ path('mylibber_backend_addCategoryNew')}}" method="post" {{ form_enctype(form) }} class="bloger"> 
+		    {{ form_widget(form) }} 
+		 
+		    <input type="submit" /> 
+		</form> 
+{% endblock %}

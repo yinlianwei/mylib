@@ -5,7 +5,13 @@
 	    <article class="borr">
        {% set i=0 %}
 <table class="table table-striped table-bordered table-condensed">
-<tr><th></th><th><span class="label label-info">书籍名称:</span></th><th><span class="label label-info">作者:</span></th><th><span class="label label-info">ISBN:</span></th><th><span class="label label-info">借阅:</span></th><th><span class="label label-info">归还:</span></th></tr>
+	<tr>
+		<th></th>
+		<th><span class="label label-info">书籍名称:</span></th>
+		<th><span class="label label-info">作者:</span></th>
+		<th><span class="label label-info">ISBN:</span></th>
+		<th><span class="label label-info">借阅:</span></th>
+		<th><span class="label label-info">归还:</span></th></tr>
 {% for borr in borrs %}
     {% set i=i+1 %}
 
@@ -17,8 +23,8 @@
             <td><a href="{{ path('MylibberMylibBundle_detail',{'id':borr.Id})}}"><span class="label">{{ borr.bookName }}</span></a></td>
             <td>{{ borr.bookAuthor}}</td>
             <td>{{ borr.bookIsbn}}</td>
-            <td>{% if  borr.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %} <span class="label">不可借阅</span> {% endif %}</td>
-            <td>{% if  borr.BookBorr == 1 %} <i class="icon-ok-sign">  {% else %} <i class="icon-leaf">{% endif %}</td>
+            <td>{% if  borr.BookBorr == 1 %} <a href="{{ path('mylibber_backend_borrform',{'id':borr.Id})}}"><span class="label label-success">借阅</span></a>  {% else %} <span class="label">不可借阅</span> {% endif %}</td>
+            <td>{% if  borr.BookBorr == 1 %} <i class="icon-ok-sign">  {% else %} <i class="icon-arrow-left">{% endif %}</td>
 
 {% endfor %}
 </table>

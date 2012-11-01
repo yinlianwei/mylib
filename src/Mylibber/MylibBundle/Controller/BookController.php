@@ -103,5 +103,26 @@ class BookController extends Controller
 			'book'  => $books,
 			));
 	}
+
+	public function bookSearchAction()
+    {
+    	$condition = trim($_GET['strText']);
+    	$type = $_GET['SearchType'];
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('MylibberMylibBundle:Book');
+        if ($type == 'title') {
+        	$books= $repository->findBy(array('bookName' => $condition));
+        }else{
+        	$books = $repository->findBy(array('bookIsbn' => $condition));
+        }
+        
+        if (!$books) {
+            throw $this->createNotFoundException('No Books found for id ');
+        }
+
+        return $this->render('MylibberMylibBundle:Book:list.html.twig', array(
+            'books'  => $books,
+            ));
+    }
 }
 ?>

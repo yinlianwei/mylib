@@ -2,6 +2,7 @@
 namespace Mylibber\BackendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mylibber\MylibBundle\Entity\Book;
+use Mylibber\MylibBundle\Entity\Borr;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Mylibber\MylibBundle\Entity\Enquiry;
@@ -62,17 +63,11 @@ class BookController extends Controller
 		return $this->redirect($this->generateUrl('mylibber_backend_addnew'));
 	}
 
-	public function borrAction()
-	{	
-		$borrs = $this->getDoctrine()
-				->getRepository('MylibberMylibBundle:Book')
-				->findAll();
-		if (!$borrs) {
-			throw $this->createNotFoundException('No borr book found for id ');
-		}
-		return $this->render('MylibberBackendBundle:Book:borr.html.twig', array(
-			'borrs'  => $borrs,
-			));
+
+
+	public function borrActionNew()
+	{
+
 	}
 
 	public function histAction()
@@ -85,6 +80,24 @@ class BookController extends Controller
 	public function configAction()
 	{
 		return $this->render('MylibberBackendBundle:Book:config.html.twig');
+	}
+
+	public function bookSearchAction($condition)
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+	    $query = $em->createQuery(
+	    'SELECT p FROM AcmeStoreBundle:Book p WHERE p.price > :bookName ORDER BY p.bookName ASC'
+		)->setParameter('price', '19.99');
+
+		$books = $query->getResult();
+	    if (!$product) {
+	        throw $this->createNotFoundException('No product found for id '.$id);
+	    }
+
+	    $product->setName('New product name!');
+	    $em->flush();
+
+	    return $this->redirect($this->generateUrl('homepage'));
 	}
 }
 

@@ -1,0 +1,16 @@
+{% extends 'MylibberBackendBundle::layout.html.twig' %}
+
+  {% block body %}
+
+ 		{% for user in users %}
+ 			{{user.uName}}
+ 			<a href="{{ path('mylibber_backend_updateUser',{'id':user.Id}) }}"><span class="label label-success">修改</span></a>
+ 			
+ 			<a href="{{ path('mylibber_backend_deleteUser',{'id':user.Id}) }}"><span class="label label-important">删除</span></a>
+ 		{% endfor %}
+		<form action="{{ path('mylibber_backend_addUserNew')}}" method="post" {{ form_enctype(form) }} class="bloger"> 
+		    {{ form_widget(form) }} 
+		 
+		    <input type="submit" /> 
+		</form> 
+{% endblock %}

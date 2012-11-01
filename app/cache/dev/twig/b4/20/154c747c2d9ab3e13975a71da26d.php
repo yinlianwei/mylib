@@ -41,53 +41,61 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
         $context["i"] = 0;
         // line 7
         echo "<table class=\"table table-striped table-bordered table-condensed\">
-<tr><th></th><th><span class=\"label label-info\">书籍名称:</span></th><th><span class=\"label label-info\">作者:</span></th><th><span class=\"label label-info\">ISBN:</span></th><th><span class=\"label label-info\">借阅:</span></th><th><span class=\"label label-info\">归还:</span></th></tr>
+\t<tr>
+\t\t<th></th>
+\t\t<th><span class=\"label label-info\">书籍名称:</span></th>
+\t\t<th><span class=\"label label-info\">作者:</span></th>
+\t\t<th><span class=\"label label-info\">ISBN:</span></th>
+\t\t<th><span class=\"label label-info\">借阅:</span></th>
+\t\t<th><span class=\"label label-info\">归还:</span></th></tr>
 ";
-        // line 9
+        // line 15
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "borrs"));
         foreach ($context['_seq'] as $context["_key"] => $context["borr"]) {
-            // line 10
+            // line 16
             echo "    ";
             $context["i"] = ($this->getContext($context, "i") + 1);
-            // line 11
+            // line 17
             echo "
     
  \t\t
  \t \t
             <tr>
             <td>";
-            // line 16
+            // line 22
             echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
             echo "</td>
             <td><a href=\"";
-            // line 17
+            // line 23
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
             echo "\"><span class=\"label\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
             echo "</span></a></td>
             <td>";
-            // line 18
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookAuthor"), "html", null, true);
             echo "</td>
             <td>";
-            // line 19
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookIsbn"), "html", null, true);
             echo "</td>
             <td>";
-            // line 20
+            // line 26
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
-                echo " <span class=\"label label-success\">可借阅</span>  ";
+                echo " <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrform", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
+                echo "\"><span class=\"label label-success\">借阅</span></a>  ";
             } else {
                 echo " <span class=\"label\">不可借阅</span> ";
             }
             echo "</td>
             <td>";
-            // line 21
+            // line 27
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
                 echo " <i class=\"icon-ok-sign\">  ";
             } else {
-                echo " <i class=\"icon-leaf\">";
+                echo " <i class=\"icon-arrow-left\">";
             }
             echo "</td>
 
@@ -96,7 +104,7 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['borr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 24
+        // line 30
         echo "</table>
 
 \t<form action=\"openlink.php\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
@@ -144,6 +152,6 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  98 => 24,  85 => 21,  77 => 20,  73 => 19,  69 => 18,  63 => 17,  59 => 16,  52 => 11,  49 => 10,  45 => 9,  41 => 7,  39 => 6,  36 => 5,  33 => 4,  27 => 2,);
+        return array (  106 => 30,  93 => 27,  83 => 26,  79 => 25,  75 => 24,  69 => 23,  65 => 22,  58 => 17,  55 => 16,  51 => 15,  41 => 7,  39 => 6,  36 => 5,  33 => 4,  27 => 2,);
     }
 }

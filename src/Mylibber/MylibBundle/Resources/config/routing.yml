@@ -28,10 +28,10 @@ MylibberMylibBundle_book_add:
     defaults:  {_controller: MylibberMylibBundle:Book:create}
 
 MylibberMylibBundle_search:
-    pattern:   /search
-    defaults:  {_controller: MylibberMylibBundle:Book:search}
+    pattern:   /bookSearch
+    defaults:  {_controller: MylibberMylibBundle:Book:bookSearch}
 
-MylibberMylibBundle_search:
+MylibberMylibBundle_showbook:
     pattern:   /showbook
     defaults:  {_controller: MylibberMylibBundle:Book:showbook}
 
