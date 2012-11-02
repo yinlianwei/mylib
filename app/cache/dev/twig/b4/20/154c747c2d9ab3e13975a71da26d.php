@@ -35,11 +35,9 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 5
-        echo "\t    <article class=\"borr\">
-       ";
-        // line 6
+        echo " ";
         $context["i"] = 0;
-        // line 7
+        // line 6
         echo "<table class=\"table table-striped table-bordered table-condensed\">
 \t<tr>
 \t\t<th></th>
@@ -49,39 +47,39 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
 \t\t<th><span class=\"label label-info\">借阅:</span></th>
 \t\t<th><span class=\"label label-info\">归还:</span></th></tr>
 ";
-        // line 15
+        // line 14
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "borrs"));
         foreach ($context['_seq'] as $context["_key"] => $context["borr"]) {
-            // line 16
+            // line 15
             echo "    ";
             $context["i"] = ($this->getContext($context, "i") + 1);
-            // line 17
+            // line 16
             echo "
     
  \t\t
  \t \t
             <tr>
             <td>";
-            // line 22
+            // line 21
             echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
             echo "</td>
             <td><a href=\"";
-            // line 23
+            // line 22
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
             echo "\"><span class=\"label\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
             echo "</span></a></td>
             <td>";
-            // line 24
+            // line 23
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookAuthor"), "html", null, true);
             echo "</td>
             <td>";
-            // line 25
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookIsbn"), "html", null, true);
             echo "</td>
             <td>";
-            // line 26
+            // line 25
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
                 echo " <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrform", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
@@ -91,7 +89,7 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
             }
             echo "</td>
             <td>";
-            // line 27
+            // line 26
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
                 echo " <i class=\"icon-ok-sign\">  ";
             } else {
@@ -104,7 +102,7 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['borr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 30
+        // line 29
         echo "</table>
 
 \t<form action=\"openlink.php\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
@@ -152,6 +150,6 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  106 => 30,  93 => 27,  83 => 26,  79 => 25,  75 => 24,  69 => 23,  65 => 22,  58 => 17,  55 => 16,  51 => 15,  41 => 7,  39 => 6,  36 => 5,  33 => 4,  27 => 2,);
+        return array (  104 => 29,  91 => 26,  81 => 25,  77 => 24,  73 => 23,  67 => 22,  63 => 21,  56 => 16,  53 => 15,  49 => 14,  39 => 6,  36 => 5,  33 => 4,  27 => 2,);
     }
 }

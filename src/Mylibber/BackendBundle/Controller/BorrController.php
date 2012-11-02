@@ -70,22 +70,26 @@ class BorrController extends Controller
 	}
 
 
-	public function bookSearchAction($condition)
+	public function borrListAction()
 	{
-		$em = $this->getDoctrine()->getEntityManager();
-	    $query = $em->createQuery(
-	    'SELECT p FROM AcmeStoreBundle:Book p WHERE p.price > :bookName ORDER BY p.bookName ASC'
-		)->setParameter('price', '19.99');
 
-		$books = $query->getResult();
-	    if (!$product) {
-	        throw $this->createNotFoundException('No product found for id '.$id);
-	    }
+		$condition = trim($_GET['strText']);
+    	$type = $_GET['SearchType'];
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('MylibberMylibBundle:Borr');
+        if ($type == 'title') {
+        	$borrs= $repository->findBy(array('bookName' => $condition));
+        }else{
+        	$borrs = $repository->findBy(array('bookIsbn' => $condition));
+        }
+        
+        if (!$borrs) {
+            throw $this->createNotFoundException('No Books found for id ');
+        }
 
-	    $product->setName('New product name!');
-	    $em->flush();
-
-	    return $this->redirect($this->generateUrl('homepage'));
+        return $this->render('MylibberBackendBundle:Borr:showhist.html.twig', array(
+            'borrs'  => $borrs,
+            ));
 	}
 }
 

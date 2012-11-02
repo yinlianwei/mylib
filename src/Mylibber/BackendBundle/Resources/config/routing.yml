@@ -2,71 +2,72 @@ mylibber_backend_hello:
     pattern:  /hello/{name}
     defaults: { _controller: MylibberBackendBundle:Default:hello }
 mylibber_backend_homepage:
-    pattern:  /admin
+    pattern:  /admin/
     defaults: { _controller: MylibberBackendBundle:Default:index }
 
 mylibber_backend_addbook:
-    pattern:  /addbook
+    pattern:  /admin/addbook
     defaults: { _controller: MylibberBackendBundle:Book:add  }
 
 mylibber_backend_addnew:
-    pattern:  /addnew
+    pattern:  /admin/addnew
     defaults: { _controller: MylibberBackendBundle:Book:addnew  }
 
 
 
 mylibber_backend_histbook:
-    pattern:  /histbook
+    pattern:  /admin/histbook
     defaults: { _controller: MylibberBackendBundle:Book:hist  }
 
 mylibber_backend_usermanage:
-    pattern:  /usermanage
+    pattern:  /admin/usermanage
     defaults: { _controller: MylibberBackendBundle:Book:usermanage  }
 
 mylibber_backend_config:
-    pattern:  /config
+    pattern:  /admin/config
     defaults: { _controller: MylibberBackendBundle:Book:config  }
 
 
-success:
-   pattern: /success
-   defaults: { _controller: MylibberBackendBundle:User:success }
-
-
 mylibber_backend_addCategory:
-    pattern:   /addCategory
+    pattern:   /admin/addCategory
     defaults:  { _controller: MylibberBackendBundle:Category:addCategory }
 
 mylibber_backend_addCategoryNew:
-    pattern:   /addCategoryNew
+    pattern:   /admin/addCategoryNew
     defaults:  { _controller: MylibberBackendBundle:Category:addCategoryNew }
 
 mylibber_backend_deleteCategory:
-    pattern:   /deleteCategory/{id}
+    pattern:   /admin/deleteCategory/{id}
     defaults:  { _controller: MylibberBackendBundle:Category:deleteCategory }
 
 
 mylibber_backend_addUser:
-    pattern:   /addUser
+    pattern:   /admin/addUser
     defaults:  { _controller: MylibberBackendBundle:User:addUser }
 mylibber_backend_addUserNew:
-    pattern:   /addUserNew
+    pattern:   /admin/addUserNew
     defaults:  { _controller: MylibberBackendBundle:User:addUserNew }
 mylibber_backend_deleteUser:
-    pattern:   /deleteUser/{id}
+    pattern:   /admin/deleteUser/{id}
     defaults:  { _controller: MylibberBackendBundle:User:deleteUser }
 mylibber_backend_updateUser:
-    pattern:   /updateUser/{id}
+    pattern:   /admin/updateUser/{id}
     defaults:  { _controller: MylibberBackendBundle:User:updateUser }
 
 
 mylibber_backend_borrbook:
-    pattern:  /borrbook
+    pattern:  /admin/borrbook
     defaults: { _controller: MylibberBackendBundle:Borr:borr  }
 mylibber_backend_borrform:
-    pattern:   /borrForm/{id}
+    pattern:   /admin/borrForm/{id}
     defaults:  { _controller: MylibberBackendBundle:Borr:borrForm }
 
 mylibber_backend_newBorrBook:
-    pattern:   /newBorrBook
+    pattern:   /admin/newBorrBook
     defaults: { _controller: MylibberBackendBundle:Borr:newBorrBook }
+
+mylibber_backend_borrList:
+    pattern:  /admin/borrList
+    defaults:  { _controller: MylibberBackendBundle:Borr:borrList }
+
+

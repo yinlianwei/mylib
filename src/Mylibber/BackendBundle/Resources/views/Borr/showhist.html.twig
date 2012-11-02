@@ -1,0 +1,56 @@
+{% extends 'MylibberBackendBundle::layout.html.twig' %}
+
+{% block title %} history books {% endblock %}
+
+{% block body %}  
+<form action="{{ path('mylibber_backend_borrList') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
+        <tbody>
+            <tr>
+                <td colspan="2">
+                    <input type="text" name="strText" id="strText" value="">&nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td align="right">请选择检索类型：</td>
+                <td>
+                    <select class="option" name="SearchType" size="1" style="width:100px;">
+                        <option value="title">题&nbsp;&nbsp;名</option>
+                        <option value="isbn">ISBN/ISSN</option>
+                    </select> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" class="submit" value="检索">
+                </td>
+            </tr>
+        </tbody>
+
+    </form>
+
+
+{% set i=0 %}
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th></th>
+        <th><span class="label label-info">书籍名称:</span></th>
+        <th><span class="label label-info">ISBN:</span></th>
+        <th><span class="label label-info">借阅人:</span></th>
+        <th><span class="label label-info">借阅号码:</span></th>
+        <th><span class="label label-info">借阅日期:</span></th></tr>
+{% for borr in borrs %}
+    {% set i=i+1 %}
+
+    
+        
+        
+            <tr>
+            <td>{{ i }}</td>
+            <td><a href="{{ path('MylibberMylibBundle_detail',{'id':borr.Id})}}"><span class="label">{{ borr.bookName }}</span></a></td>
+            <td>{{ borr.bookIsbn }}</td>
+            <td>{{ borr.uName }}</td>
+            <td>{{ borr.uBookId }}</td>
+            <td>{{ 1 }}</td>
+{% endfor %}
+</table>
+{% endblock %}

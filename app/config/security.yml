@@ -18,6 +18,10 @@ security:
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
+        backend:
+            pattern:  /admin/.*
+            http_basic: true
+            logout:     true
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false

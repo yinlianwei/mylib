@@ -82,22 +82,17 @@ class BookController extends Controller
 		return $this->render('MylibberBackendBundle:Book:config.html.twig');
 	}
 
-	public function bookSearchAction($condition)
+	public function showhistAction()
 	{
 		$em = $this->getDoctrine()->getEntityManager();
-	    $query = $em->createQuery(
-	    'SELECT p FROM AcmeStoreBundle:Book p WHERE p.price > :bookName ORDER BY p.bookName ASC'
-		)->setParameter('price', '19.99');
+	    $borr = $em->getRepository('AcmeStoreBundle:Borr')->find($id);
 
-		$books = $query->getResult();
-	    if (!$product) {
-	        throw $this->createNotFoundException('No product found for id '.$id);
+	    if (!$borr) {
+	        throw $this->createNotFoundException('No product found for id ');
 	    }
-
-	    $product->setName('New product name!');
-	    $em->flush();
-
-	    return $this->redirect($this->generateUrl('homepage'));
+		return $this->render('MylibberBackendBundle:Book:showhist.html.twig',
+			array('form'=>$form->createView()
+			));
 	}
 }
 
