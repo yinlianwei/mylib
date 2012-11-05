@@ -35,7 +35,10 @@ class __TwigTemplate_17bd6d7527559b1e81b6967e84f60fe3 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         echo "  
-\t<h3>config</h3>
+ 
+  <div class=\"alert alert-info\">
+  <h4>系统配置  </h4>
+</div> 
 ";
     }
 

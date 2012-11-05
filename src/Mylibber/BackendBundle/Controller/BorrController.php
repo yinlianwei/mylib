@@ -31,13 +31,20 @@ class BorrController extends Controller
 	{
 		$em = $this->getDoctrine()->getEntityManager();
     	$book = $em->getRepository('MylibberMylibBundle:Book')->find($id);
+
+    	//set boorr state can't borrow 
+    	//$book->setBookBorr('2');
+    	//$em->flush();
+
+
 		$borr = new Borr();
+		date_default_timezone_set('PRC'); 
 		$form = $this->createFormBuilder($borr)
-					->add('bookName',null, array('label' => '书籍名称'))
-					->add('bookIsbn')
-					->add('uName')
-					->add('borrDate')
-					->add('uBookId')
+					->add('bookName',null, array('label' => '书籍名称','data' => $book->getBookName()))
+					->add('bookIsbn',null, array('label' => 'ISBN','data' => $book->getBookIsbn()))
+					->add('uName',null, array('label' => '借阅者'))
+					->add('borrDate',null, array('label' => '借阅日期','data' => date('Y-m-d G:i:s')))
+					->add('uBookId',null, array('label' => '证件号码'))
 					->getForm();
 		return $this->render('MylibberBackendBundle:Book:borrBook.html.twig',
             			array('form'=>$form->createView(),
@@ -45,9 +52,15 @@ class BorrController extends Controller
                     		'borr' => $borr,
             ));
 	}
-	public function newBorrBookAction(Request $request)
+	public function newBorrBookAction($id,Request $request)
 	{
 		$borr = new Borr();
+
+
+		$em1 = $this->getDoctrine()->getEntityManager();
+    	
+
+
 		$form = $this->createFormBuilder($borr)
 					->add('bookName')
 					->add('bookIsbn')
@@ -56,6 +69,7 @@ class BorrController extends Controller
 					->add('uBookId')
 					->getForm();
 		$request = $this->getRequest();
+		$book = $em1->getRepository('MylibberMylibBundle:Book')->find($id);
 
 		if ($request->getMethod() == "POST") {
 			$form->bindRequest($request);
@@ -63,10 +77,37 @@ class BorrController extends Controller
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getEntityManager();
 	            $em->persist($borr);
+
+	            //set boorr state can't borrow 
+    			$book->setBookBorr('2');
+	            $em1->flush();
+
 	            $em->flush();
 			}
 		}
 		return $this->redirect($this->generateUrl('mylibber_backend_borrbook'));
+	}
+
+
+	public function borrSearchListAction()
+	{
+		$condition = trim($_GET['strText']);
+    	$type = $_GET['SearchType'];
+        $em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('MylibberMylibBundle:Book');
+        if ($type == 'title') {
+        	$books= $repository->findBy(array('bookName' => $condition));
+        }else{
+        	$books = $repository->findBy(array('bookIsbn' => $condition));
+        }
+        
+        if (!$books) {
+            throw $this->createNotFoundException('No Books found for id ');
+        }
+
+        return $this->render('MylibberBackendBundle:Borr:searchBorrlist.html.twig', array(
+            'books'  => $books,
+            ));
 	}
 
 

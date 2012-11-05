@@ -35,13 +35,17 @@ class __TwigTemplate_a345d5a7c85b08c712da91f92240b854 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 5
-        echo "<form action=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_newBorrBook"), "html", null, true);
+        echo "  <div class=\"alert alert-info\">
+  <h4>借阅</h4>
+</div>
+<form action=\"";
+        // line 8
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_newBorrBook", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo " class=\"bloger\"> 
 \t\t    ";
-        // line 6
+        // line 9
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo " 
 \t\t 
@@ -64,6 +68,6 @@ class __TwigTemplate_a345d5a7c85b08c712da91f92240b854 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  43 => 6,  36 => 5,  33 => 4,  27 => 2,);
+        return array (  47 => 9,  41 => 8,  36 => 5,  33 => 4,  27 => 2,);
     }
 }

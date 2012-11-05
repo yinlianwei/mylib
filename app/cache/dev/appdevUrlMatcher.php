@@ -227,6 +227,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::deleteUserAction',)), array('_route' => 'mylibber_backend_deleteUser'));
         }
 
+        // mylibber_backend_updateUserForm
+        if (0 === strpos($pathinfo, '/admin/updateUserForm') && preg_match('#^/admin/updateUserForm/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::updateUserFormAction',)), array('_route' => 'mylibber_backend_updateUserForm'));
+        }
+
         // mylibber_backend_updateUser
         if (0 === strpos($pathinfo, '/admin/updateUser') && preg_match('#^/admin/updateUser/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\UserController::updateUserAction',)), array('_route' => 'mylibber_backend_updateUser'));
@@ -243,13 +248,23 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // mylibber_backend_newBorrBook
-        if ($pathinfo === '/admin/newBorrBook') {
-            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::newBorrBookAction',  '_route' => 'mylibber_backend_newBorrBook',);
+        if (0 === strpos($pathinfo, '/admin/newBorrBook') && preg_match('#^/admin/newBorrBook/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::newBorrBookAction',)), array('_route' => 'mylibber_backend_newBorrBook'));
         }
 
         // mylibber_backend_borrList
         if ($pathinfo === '/admin/borrList') {
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::borrListAction',  '_route' => 'mylibber_backend_borrList',);
+        }
+
+        // mylibber_backend_borrSearchList
+        if ($pathinfo === '/admin/borrSearchList') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BorrController::borrSearchListAction',  '_route' => 'mylibber_backend_borrSearchList',);
+        }
+
+        // mylibber_backend_giveBack
+        if (0 === strpos($pathinfo, '/admin/giveBack') && preg_match('#^/admin/giveBack/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::giveBackAction',)), array('_route' => 'mylibber_backend_giveBack'));
         }
 
         // mylibber_mylib_homepage
@@ -315,7 +330,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // MylibberMylibBundle_list
-        if ($pathinfo === '/list') {
+        if (rtrim($pathinfo, '/') === '/list') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'MylibberMylibBundle_list');
+            }
+
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showbookAction',  '_route' => 'MylibberMylibBundle_list',);
         }
 

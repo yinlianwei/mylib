@@ -50,24 +50,33 @@ mylibber_backend_addUserNew:
 mylibber_backend_deleteUser:
     pattern:   /admin/deleteUser/{id}
     defaults:  { _controller: MylibberBackendBundle:User:deleteUser }
+mylibber_backend_updateUserForm:
+    pattern:   /admin/updateUserForm/{id}
+    defaults:  { _controller: MylibberBackendBundle:User:updateUserForm }
 mylibber_backend_updateUser:
     pattern:   /admin/updateUser/{id}
-    defaults:  { _controller: MylibberBackendBundle:User:updateUser }
+    defaults:  { _controller: MylibberBackendBundle:User:updateUser}
 
 
 mylibber_backend_borrbook:
     pattern:  /admin/borrbook
     defaults: { _controller: MylibberBackendBundle:Borr:borr  }
+
 mylibber_backend_borrform:
     pattern:   /admin/borrForm/{id}
     defaults:  { _controller: MylibberBackendBundle:Borr:borrForm }
 
 mylibber_backend_newBorrBook:
-    pattern:   /admin/newBorrBook
+    pattern:   /admin/newBorrBook/{id}
     defaults: { _controller: MylibberBackendBundle:Borr:newBorrBook }
 
 mylibber_backend_borrList:
     pattern:  /admin/borrList
     defaults:  { _controller: MylibberBackendBundle:Borr:borrList }
+mylibber_backend_borrSearchList:
+    pattern:  /admin/borrSearchList
+    defaults:  { _controller: MylibberBackendBundle:Borr:borrSearchList}
 
-
+mylibber_backend_giveBack:
+    pattern: /admin/giveBack/{id}
+    defaults: {_controller: MylibberBackendBundle:Book:giveBack}

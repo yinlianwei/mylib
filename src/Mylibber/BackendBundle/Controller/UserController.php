@@ -16,13 +16,11 @@ class UserController extends Controller
 	{
 		$user = new User();
 		$form = $this->createFormBuilder($user)
-					->add('uName')
-					->add('uPwd')
-					->add('uPwd')
-					->add('uState')
-					->add('uBookId')
+					->add('uName',null, array('label' => '用户名'))
+					->add('uPwd',null, array('label' => '密码','data'=>'******', 'read_only'=>True))
+					->add('uState','choice', array('label' => '是否管理员','choices' => array('2' => '不是管理员','1' => '是管理员')))
+					->add('uBookId',null, array('label' => '证件号码'))
 					->getForm();
-
 		$users = $this->getDoctrine()
 						->getRepository('MylibberMylibBundle:User')
 						->findAll();
@@ -39,7 +37,6 @@ class UserController extends Controller
 		$form = $this->createFormBuilder($user)
 					->add('uName')
 					->add('uPwd')
-					->add('uPwd')
 					->add('uState')
 					->add('uBookId')
 					->getForm();
@@ -49,11 +46,9 @@ class UserController extends Controller
         if ($request->getMethod() == "POST") {
             $form->bindRequest($request);
 
-            if ($form->isValid()) {
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($user);
                 $em->flush();
-            }
         }
         return $this->redirect($this->generateUrl('mylibber_backend_addUser'));
 	}
@@ -73,27 +68,58 @@ class UserController extends Controller
 		return $this->redirect($this->generateUrl('mylibber_backend_addUser'));
     }
 
-    public function updateUserAction($id)
+    public function updateUserFormAction($id)
     {
     	$em = $this->getDoctrine()->getEntityManager();
     	$user = $em->getRepository('MylibberMylibBundle:User')->find($id);
 		$form = $this->createFormBuilder($user)
+					->add('uName',null, array('label' => '用户名'))
+					->add('uPwd',null, array('label' => '密码'))
+					->add('uState','choice', array('label' => '是否管理员','choices' => array('2' => '不是管理员','1' => '是管理员')))
+					->add('uBookId',null, array('label' => '证件号码'))
+					->getForm();
+
+	/*	$users = $this->getDoctrine()
+						->getRepository('MylibberMylibBundle:User')
+						->findAll();
+		
+		$em->flush();*/
+		$em->remove($user);
+
+		return $this->render('MylibberBackendBundle:User:updateUser.html.twig',
+            			array('form'=>$form->createView(),
+                    		'user' => $user,
+            ));
+    }
+
+    public function updateUserAction($id)
+    {
+    	$user = new User();
+		$form = $this->createFormBuilder($user)
 					->add('uName')
-					->add('uPwd')
 					->add('uPwd')
 					->add('uState')
 					->add('uBookId')
 					->getForm();
+	
+		$request = $this->getRequest();
 
-		$users = $this->getDoctrine()
-						->getRepository('MylibberMylibBundle:User')
-						->findAll();
-		$em->remove($user);
-		$em->flush();
-		return $this->render('MylibberBackendBundle:User:addUser.html.twig',
-            			array('form'=>$form->createView(),
-                    		'users' => $users,
-            ));
+		$delem = $this->getDoctrine()->getEntityManager();
+    	$deluser = $delem->getRepository('MylibberMylibBundle:User')->find($id);
+
+        if ($request->getMethod() == "POST") {
+            $form->bindRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($user);
+				$em->flush();
+
+                $delem->remove($deluser);
+               	$delem->flush();
+            }
+        }
+		return $this->redirect($this->generateUrl('mylibber_backend_addUser'));
     }
 }
 ?>

@@ -34,9 +34,12 @@ class __TwigTemplate_063973cb44550e642206eae405c18a60 extends Twig_Template
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        echo "  
+        echo " 
+  <div class=\"alert alert-info\">
+  <h4>借阅历史  </h4>
+</div> 
 <form action=\"";
-        // line 6
+        // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrList"), "html", null, true);
         echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
 \t\t<tbody>
@@ -78,6 +81,6 @@ class __TwigTemplate_063973cb44550e642206eae405c18a60 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  38 => 6,  33 => 5,  27 => 3,);
+        return array (  41 => 9,  33 => 5,  27 => 3,);
     }
 }

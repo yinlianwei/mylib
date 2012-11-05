@@ -2,7 +2,7 @@ mylibber_mylib_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: MylibberMylibBundle:Default:index }
 MylibberMylibBundle_homepage: 
-    pattern :   / 
+    pattern :   /
     defaults :  {  _controller: MylibberMylibBundle:Default:index  } 
     requirements : 
         _method :   GET
@@ -36,7 +36,7 @@ MylibberMylibBundle_showbook:
     defaults:  {_controller: MylibberMylibBundle:Book:showbook}
 
 MylibberMylibBundle_list:
-    pattern:   /list
+    pattern:   /list/
     defaults:  {_controller: MylibberMylibBundle:Book:showbook}
 
 MylibberMylibBundle_detail:

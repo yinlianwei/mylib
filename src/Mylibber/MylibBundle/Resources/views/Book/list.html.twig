@@ -26,25 +26,19 @@
 {% block sidebar %}
 
 <span class="label label-info">书籍检索</span>
-    <form action="openlink.php" method="get" name="f" onsubmit="return chkForm(this)" id="f">
+<form action="{{ path('MylibberMylibBundle_search') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
         <tbody>
             <tr>
-                <td colspan="2"><input type="hidden" id="historyCount" name="historyCount" value="1">
-                    <input type="text" size="45" maxlength="250" name="strText" id="strText" value="" class="paddingleft">&nbsp;&nbsp;
-                        <script language="javascript" type="text/javascript">
-                            document.f.strText.focus();
-                        </script>
-                    
+                <td colspan="2">请输入检索关键字:
+                    <input type="text" name="strText" id="strText" value="">&nbsp;&nbsp;
                 </td>
             </tr>
             <tr>
                 <td align="right">请选择检索类型：</td>
                 <td>
-                    <select class="option" name="strSearchType" size="1" style="width:100px;">
+                    <select class="option" name="SearchType" size="1" style="width:100px;">
                         <option value="title">题&nbsp;&nbsp;名</option>
-                        <option value="author">责任者</option>
                         <option value="isbn">ISBN/ISSN</option>
-                        <option value="publisher">出版社</option>
                     </select> 
                 </td>
             </tr>

@@ -95,17 +95,18 @@ class __TwigTemplate_5d25ce45679f11c66873968707a84fc1 extends Twig_Template
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
         // line 25
         echo "    </article>
+
 ";
     }
 
-    // line 28
+    // line 29
     public function block_sidebar($context, array $blocks = array())
     {
-        // line 29
+        // line 30
         echo "
 <span class=\"label label-info\">书籍检索</span>
 \t<form action=\"";
-        // line 31
+        // line 32
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
         echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
 \t\t<tbody>
@@ -146,6 +147,6 @@ class __TwigTemplate_5d25ce45679f11c66873968707a84fc1 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  107 => 31,  103 => 29,  100 => 28,  95 => 25,  86 => 22,  81 => 20,  77 => 19,  73 => 18,  65 => 17,  61 => 16,  49 => 11,  43 => 10,  39 => 8,  35 => 7,  30 => 4,  27 => 3,);
+        return array (  108 => 32,  104 => 30,  101 => 29,  95 => 25,  86 => 22,  81 => 20,  77 => 19,  73 => 18,  65 => 17,  61 => 16,  49 => 11,  43 => 10,  39 => 8,  35 => 7,  30 => 4,  27 => 3,);
     }
 }

@@ -2,7 +2,10 @@
 
 {% block title %} history books {% endblock %}
 
-{% block body %}  
+{% block body %} 
+  <div class="alert alert-info">
+  <h4>借阅历史  </h4>
+</div>
 <form action="{{ path('mylibber_backend_borrList') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
         <tbody>
             <tr>
@@ -50,7 +53,7 @@
             <td>{{ borr.bookIsbn }}</td>
             <td>{{ borr.uName }}</td>
             <td>{{ borr.uBookId }}</td>
-            <td>{{ 1 }}</td>
+            <td>{{ borr.borrDate}}</td>
 {% endfor %}
 </table>
 {% endblock %}

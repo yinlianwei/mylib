@@ -34,9 +34,12 @@ class __TwigTemplate_b62e1fb455c598c0e79c2ac3bc0c40eb extends Twig_Template
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        echo "  
+        echo " 
+  <div class=\"alert alert-info\">
+  <h4>借阅历史  </h4>
+</div>
 <form action=\"";
-        // line 6
+        // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrList"), "html", null, true);
         echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
         <tbody>
@@ -65,9 +68,9 @@ class __TwigTemplate_b62e1fb455c598c0e79c2ac3bc0c40eb extends Twig_Template
 
 
 ";
-        // line 32
+        // line 35
         $context["i"] = 0;
-        // line 33
+        // line 36
         echo "<table class=\"table table-striped table-bordered table-condensed\">
     <tr>
         <th></th>
@@ -77,51 +80,51 @@ class __TwigTemplate_b62e1fb455c598c0e79c2ac3bc0c40eb extends Twig_Template
         <th><span class=\"label label-info\">借阅号码:</span></th>
         <th><span class=\"label label-info\">借阅日期:</span></th></tr>
 ";
-        // line 41
+        // line 44
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "borrs"));
         foreach ($context['_seq'] as $context["_key"] => $context["borr"]) {
-            // line 42
+            // line 45
             echo "    ";
             $context["i"] = ($this->getContext($context, "i") + 1);
-            // line 43
+            // line 46
             echo "
     
         
         
             <tr>
             <td>";
-            // line 48
+            // line 51
             echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
             echo "</td>
             <td><a href=\"";
-            // line 49
+            // line 52
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
             echo "\"><span class=\"label\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
             echo "</span></a></td>
             <td>";
-            // line 50
+            // line 53
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookIsbn"), "html", null, true);
             echo "</td>
             <td>";
-            // line 51
+            // line 54
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "uName"), "html", null, true);
             echo "</td>
             <td>";
-            // line 52
+            // line 55
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "uBookId"), "html", null, true);
             echo "</td>
             <td>";
-            // line 53
-            echo 1;
+            // line 56
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "borrDate"), "html", null, true);
             echo "</td>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['borr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 55
+        // line 58
         echo "</table>
 ";
     }
@@ -138,6 +141,6 @@ class __TwigTemplate_b62e1fb455c598c0e79c2ac3bc0c40eb extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  123 => 55,  115 => 53,  111 => 52,  107 => 51,  103 => 50,  97 => 49,  93 => 48,  86 => 43,  83 => 42,  79 => 41,  69 => 33,  67 => 32,  38 => 6,  33 => 5,  27 => 3,);
+        return array (  126 => 58,  118 => 56,  114 => 55,  110 => 54,  106 => 53,  100 => 52,  96 => 51,  89 => 46,  86 => 45,  82 => 44,  72 => 36,  70 => 35,  41 => 9,  33 => 5,  27 => 3,);
     }
 }

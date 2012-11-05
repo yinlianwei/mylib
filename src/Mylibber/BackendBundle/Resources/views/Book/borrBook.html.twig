@@ -2,7 +2,10 @@
 {% block title %} borrow books {% endblock %}
 
 {% block body %}
-<form action="{{ path('mylibber_backend_newBorrBook')}}" method="post" {{ form_enctype(form) }} class="bloger"> 
+  <div class="alert alert-info">
+  <h4>借阅</h4>
+</div>
+<form action="{{ path('mylibber_backend_newBorrBook',{'id':book.Id})}}" method="post" {{ form_enctype(form) }} class="bloger"> 
 		    {{ form_widget(form) }} 
 		 
 		    <input type="submit" /> 

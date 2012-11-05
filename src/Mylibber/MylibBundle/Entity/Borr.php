@@ -45,7 +45,7 @@ class Borr
     /**
      * @var \DateTime $borrDate
      *
-     * @ORM\Column(name="borrDate", type="datetime")
+     * @ORM\Column(name="borrDate", type="string", length=255)
      */
     private $borrDate;
 

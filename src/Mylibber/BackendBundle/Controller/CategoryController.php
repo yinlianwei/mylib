@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         $category = new Category();
         $form = $this->createFormBuilder($category)
-            ->add('categoryName')
+            ->add('categoryName',null, array('label' => '分类名称'))
             ->getForm();    
         $categories = $this->getDoctrine()
             ->getRepository('MylibberMylibBundle:Category')
