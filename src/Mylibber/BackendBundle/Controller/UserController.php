@@ -64,6 +64,7 @@ class UserController extends Controller
 
     	$em->remove($user);
 		$em->flush();
+		
 
 		return $this->redirect($this->generateUrl('mylibber_backend_addUser'));
     }

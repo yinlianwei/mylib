@@ -24,10 +24,12 @@ class BookController extends Controller
             ->getRepository('MylibberMylibBundle:Category')
             ->findAll();
 
-        foreach ($categories as $key => $value) {
+        /*foreach ($categories as $key => $value) {
         	$category[$key] = $categories[$key]->getCategoryName();
+        }*/
+        foreach ($categories as $key => $value) {
+        	$category[$categories[$key]->getCategoryName()] = $categories[$key]->getCategoryName();
         }
-
 		$book = new Book();
 		$form = $this->createFormBuilder($book)
 			->add('bookName',null, array('label' => '书籍名称'))
@@ -72,9 +74,11 @@ class BookController extends Controller
 				$em = $this->getDoctrine()->getEntityManager();
 	            $em->persist($book);
 	            $em->flush();
+	            echo '<div class="alert alert-error">执行成功</div>';
 			}
 		}
-		return $this->redirect($this->generateUrl('mylibber_backend_addnew'));
+
+		return $this->redirect($this->generateUrl('mylibber_backend_addbook'));
 	}
 
 
@@ -96,6 +100,21 @@ class BookController extends Controller
 	}
 
 
+
+	public function deleteBookAction($id)
+		{
+			$em = $this->getDoctrine()->getEntityManager();
+	    	$book = $em->getRepository('MylibberMylibBundle:Book')->find($id);
+
+	    	if (!$book) {
+	        	throw $this->createNotFoundException('No Book found for id '.$id);
+	    	}
+
+	    	$em->remove($book);
+			$em->flush();
+
+			return $this->redirect($this->generateUrl('mylibber_backend_borrbook'));
+	    }
 
 	public function configAction()
 	{

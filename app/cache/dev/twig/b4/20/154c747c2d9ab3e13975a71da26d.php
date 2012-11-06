@@ -49,41 +49,53 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
 \t\t<th><span class=\"label label-info\">作者:</span></th>
 \t\t<th><span class=\"label label-info\">ISBN:</span></th>
 \t\t<th><span class=\"label label-info\">借阅:</span></th>
-\t\t<th><span class=\"label label-info\">归还:</span></th></tr>
+\t\t<th><span class=\"label label-info\">归还:</span></th>
+\t\t<th><span class=\"label label-info\">移除:</span></th></tr>
+\t\t
 ";
-        // line 17
+        // line 19
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "borrs"));
         foreach ($context['_seq'] as $context["_key"] => $context["borr"]) {
-            // line 18
+            // line 20
             echo "    ";
             $context["i"] = ($this->getContext($context, "i") + 1);
-            // line 19
+            // line 21
             echo "
     
  \t\t
  \t \t
             <tr>
             <td>";
-            // line 24
-            echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
-            echo "</td>
-            <td><a href=\"";
-            // line 25
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
-            echo "\"><span class=\"label\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
-            echo "</span></a></td>
-            <td>";
             // line 26
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookAuthor"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
             echo "</td>
             <td>";
             // line 27
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookIsbn"), "html", null, true);
+            if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
+                echo " <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
+                echo "\"><span class=\"label label-success\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
+                echo "</span></a> ";
+            } else {
+                echo " <a href=\"";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
+                echo "\"><span class=\"label\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookName"), "html", null, true);
+                echo "</span></a>";
+            }
             echo "</td>
             <td>";
             // line 28
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookAuthor"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 29
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "borr"), "bookIsbn"), "html", null, true);
+            echo "</td>
+            <td>";
+            // line 30
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
                 echo " <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrform", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
@@ -93,7 +105,7 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
             }
             echo "</td>
             <td>";
-            // line 29
+            // line 31
             if (($this->getAttribute($this->getContext($context, "borr"), "BookBorr") == 1)) {
                 echo " <i class=\"icon-ok-sign\">  ";
             } else {
@@ -102,16 +114,19 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
                 echo "\"><i class=\"icon-arrow-left\"></a>";
             }
             echo "</td>
-
+            <td><a href=\"";
+            // line 32
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_deletebook", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
+            echo "\"><span class=\"icon-remove\"></span></a></td>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['borr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 32
+        // line 34
         echo "</table>
 <form action=\"";
-        // line 33
+        // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_borrSearchList"), "html", null, true);
         echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
 \t\t<tbody>
@@ -152,6 +167,6 @@ class __TwigTemplate_b420154c747c2d9ab3e13975a71da26d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 33,  110 => 32,  95 => 29,  85 => 28,  81 => 27,  77 => 26,  71 => 25,  67 => 24,  60 => 19,  57 => 18,  53 => 17,  43 => 9,  41 => 8,  36 => 5,  33 => 4,  27 => 2,);
+        return array (  128 => 35,  125 => 34,  117 => 32,  107 => 31,  97 => 30,  93 => 29,  89 => 28,  73 => 27,  69 => 26,  62 => 21,  59 => 20,  55 => 19,  43 => 9,  41 => 8,  36 => 5,  33 => 4,  27 => 2,);
     }
 }

@@ -52,11 +52,13 @@ class BookController extends Controller
 		$books = $this->getDoctrine()
 				->getRepository('MylibberMylibBundle:Book')
 				->findAll();
+
 		if (!$books) {
 			throw $this->createNotFoundException('No product found for id ');
 		}
 		return $this->render('MylibberMylibBundle:Default:index.html.twig', array(
 			'books'  => $books,
+			'categories' => $categories,
 			));
 	}
 

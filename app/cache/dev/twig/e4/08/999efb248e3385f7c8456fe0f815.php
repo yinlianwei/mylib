@@ -12,6 +12,7 @@ class __TwigTemplate_e408999efb248e3385f7c8456fe0f815 extends Twig_Template
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
+            'sidebar' => array($this, 'block_sidebar'),
         );
     }
 
@@ -35,24 +36,34 @@ class __TwigTemplate_e408999efb248e3385f7c8456fe0f815 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 8
-        echo "<header> 
-        <h1> About Mylib </h1> 
-    </header> 
-    <article> 
-        <p> 基于symfony完成一个图书管理系统，该系统具备如下功能:
+        echo "<div class=\"alert alert-info\"><h4>网上图书馆</h4></div>
+<br>
+<div class=\"alert alert-success\">
+  使用symfony2 完成的一个简易图书管理系统，暂且成为“网上图书馆”.
+   该系统具备如下主要功能：
+   <div class=\"alert alert-success\">
+  图书录入，图书借出，图书归还，图书查询。
+</div>
 
-\t<p>图书录入</p>
-\t<p>图书借出</p>
-\t<p>图书归还</p>
-\t<p>图书归还</p>
-\t<p>图书查询</p>
-\t
-\t
-\t
-\t
-\t
-\t图书借阅历史 </p>
-    </article>
+<li>框架版本：symfony2, twitter-bootstrap</li>
+<li>兼容浏览器：chrome firefox</li>
+<li>环境：xmapp-for-linux集成开发套件, linux-ubuntu-12.04LTS X64</li>
+<li>开发工具：sublime</li>
+<li>版本控制：github   https://github.com/yinlianwei/mylib.git</li>
+<li>作者： Evenvi</li>
+<li>开发日期：2012.10.25-2012.11.5</li>
+
+
+
+</div>
+";
+    }
+
+    // line 30
+    public function block_sidebar($context, array $blocks = array())
+    {
+        // line 31
+        echo "
 ";
     }
 
@@ -68,6 +79,6 @@ class __TwigTemplate_e408999efb248e3385f7c8456fe0f815 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  36 => 8,  33 => 7,  27 => 5,);
+        return array (  64 => 31,  61 => 30,  37 => 8,  34 => 7,  28 => 5,);
     }
 }

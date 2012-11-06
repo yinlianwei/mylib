@@ -182,6 +182,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::addnewAction',  '_route' => 'mylibber_backend_addnew',);
         }
 
+        // mylibber_backend_deletebook
+        if (0 === strpos($pathinfo, '/admin/deltebook') && preg_match('#^/admin/deltebook/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::deletebookAction',)), array('_route' => 'mylibber_backend_deletebook'));
+        }
+
         // mylibber_backend_histbook
         if ($pathinfo === '/admin/histbook') {
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::histAction',  '_route' => 'mylibber_backend_histbook',);

@@ -31,15 +31,14 @@ class __TwigTemplate_9aeac17d4bb085cafe8e13e3bd9a782b extends Twig_Template
         echo "  <div class=\"alert alert-info\">
   <h4>书籍录入</h4>
 </div>
- 
 \t\t<form action=\"";
-        // line 8
+        // line 7
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_addnew"), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo " class=\"bloger\">
 \t\t    ";
-        // line 9
+        // line 8
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo " 
 \t\t 
@@ -60,6 +59,6 @@ class __TwigTemplate_9aeac17d4bb085cafe8e13e3bd9a782b extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  41 => 9,  35 => 8,  29 => 4,  26 => 3,);
+        return array (  40 => 8,  34 => 7,  29 => 4,  26 => 3,);
     }
 }

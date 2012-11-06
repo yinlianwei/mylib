@@ -13,7 +13,9 @@
 		<th><span class="label label-info">作者:</span></th>
 		<th><span class="label label-info">ISBN:</span></th>
 		<th><span class="label label-info">借阅:</span></th>
-		<th><span class="label label-info">归还:</span></th></tr>
+		<th><span class="label label-info">归还:</span></th>
+		<th><span class="label label-info">移除:</span></th></tr>
+		
 {% for borr in borrs %}
     {% set i=i+1 %}
 
@@ -22,12 +24,12 @@
  	 	
             <tr>
             <td>{{ i }}</td>
-            <td><a href="{{ path('MylibberMylibBundle_detail',{'id':borr.Id})}}"><span class="label">{{ borr.bookName }}</span></a></td>
+            <td>{% if  borr.BookBorr == 1 %} <a href="{{ path('MylibberMylibBundle_detail',{'id':borr.Id})}}"><span class="label label-success">{{ borr.bookName }}</span></a> {% else %} <a href="{{ path('MylibberMylibBundle_detail',{'id':borr.Id})}}"><span class="label">{{ borr.bookName }}</span></a>{% endif %}</td>
             <td>{{ borr.bookAuthor}}</td>
             <td>{{ borr.bookIsbn}}</td>
             <td>{% if  borr.BookBorr == 1 %} <a href="{{ path('mylibber_backend_borrform',{'id':borr.Id})}}"><span class="label label-success">借阅</span></a>  {% else %} <span class="label">不可借阅</span> {% endif %}</td>
             <td>{% if  borr.BookBorr == 1 %} <i class="icon-ok-sign">  {% else %} <a href="{{ path('mylibber_backend_giveBack',{'id':borr.Id }) }}"><i class="icon-arrow-left"></a>{% endif %}</td>
-
+            <td><a href="{{ path('mylibber_backend_deletebook',{'id':borr.Id})}}"><span class="icon-remove"></span></a></td>
 {% endfor %}
 </table>
 <form action="{{ path('mylibber_backend_borrSearchList') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">

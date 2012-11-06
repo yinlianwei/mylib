@@ -1,27 +1,22 @@
 {% extends 'MylibberBackendBundle::layout.html.twig' %}
   {% block title %} welcome admin{% endblock %}
   {% block body %}
-<!--rating modal's content-->
-            <div id="ratyService" class="modal hide fade">
-            
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3>添加收藏: 我买过这个服务</h3>
-            </div><!--Modal header-->
-            <div class="modal-body">
-             <div class="row">
-            <div  class="span1"></div>
-             <div class="span4 ">
-              <h3>求评价(@^_^@) : </h3>
-              </div>
-              <div  class="span4" id="ratingstar"  ></div>
-              <div  class="span1" id="target"></div>
-           </div>
-            </div><!--Modal body-->
-            <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
-              <a href="#" class="btn btn-primary">Save changes</a>
-            </div><!--Modal footer-->
+<div class="alert alert-info">
+  使用symfony2 完成的一个简易图书管理系统，暂且成为“网上图书馆”.
+   该系统具备如下主要功能：
+   <div class="alert alert-success">
+  图书录入，图书借出，图书归还，图书查询。
+</div>
 
-          </div> <!--Modal-->
+<li>框架版本：symfony2, twitter-bootstrap</li>
+<li>兼容浏览器：chrome firefox</li>
+<li>环境：xmapp-for-linux集成开发套件, linux-ubuntu-12.04LTS X64</li>
+<li>开发工具：sublime</li>
+<li>版本控制：github   https://github.com/yinlianwei/mylib.git</li>
+<li>作者： Evenvi</li>
+<li>开发日期：2012.10.25-2012.11.5</li>
+
+
+
+</div>
 {% endblock %}

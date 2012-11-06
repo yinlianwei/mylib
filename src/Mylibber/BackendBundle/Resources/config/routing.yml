@@ -12,6 +12,9 @@ mylibber_backend_addbook:
 mylibber_backend_addnew:
     pattern:  /admin/addnew
     defaults: { _controller: MylibberBackendBundle:Book:addnew  }
+mylibber_backend_deletebook:
+    pattern:    /admin/deltebook/{id}
+    defaults:  { _controller: MylibberBackendBundle:Book:deletebook }
 
 
 

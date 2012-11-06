@@ -29,7 +29,7 @@ class __TwigTemplate_fcfb8917dfbb529cfcc27d623ac49830 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        echo "\t<span class=\"label label-info\">详细信息</span>
+        echo "\t<div class=\"alert alert-info\"><h4>详细信息</h4></div>
     <article class=\"book\">
     <p></p>  
     \t<div class=\"detailbookpic\">
