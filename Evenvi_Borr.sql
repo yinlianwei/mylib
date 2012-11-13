@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 5.5.28, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: mylib2
+-- ------------------------------------------------------
+-- Server version	5.5.27
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Borr`
+--
+
+DROP TABLE IF EXISTS `Borr`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Borr` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookIsbn` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `uBookId` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `borrDate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `bookName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `uName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Borr`
+--
+
+LOCK TABLES `Borr` WRITE;
+/*!40000 ALTER TABLE `Borr` DISABLE KEYS */;
+INSERT INTO `Borr` VALUES (1,'748938485','477888343434','2007-01-01 00:00:00','红高粱','Evenvi'),(2,'9595939','7-3834894','2007-01-01 00:00:00','我在这里','evenvi'),(3,'94930990','4737439','2007-01-01 00:00:00','我们在这里','额诶'),(4,'480348','8483848','2007-01-01 00:00:00','而我诶','948098'),(5,'9787111126768','737373737','2007-01-01 00:00:00','经济学原理','Evenvi'),(6,'9787115230270','7834747573475','2007-01-01 00:00:00','python基础教程','殷连伟'),(7,'9787115230270','676834587348','2007-01-01 00:00:00','Python基础教程','Evenvi'),(8,'9787115230270','8834757324','2007-01-01 00:00:00','http://book.dangdang.com/01.54.htm','Evenvi'),(9,'9787115230270','9787115230270','2007-01-01 00:00:00','Python基础教程','idsfgu'),(10,'经济学原理','3243232534534','2007-01-01 00:00:00','经济学原理','UUIurf'),(11,'9787115230270','34235634534534','2007-01-01 00:00:00','Python基础教程','YYuuq'),(12,'9787115249494','8347523945923','2012-11-05 10:28:56','黑客与画家','YYoooo'),(13,'a','54636464456','2012-11-05 10:32:05','a','frrttr'),(14,'9787115230270','89484848','2012-11-05 10:47:00','Python基础教程','Hello'),(15,'9787115230270','334344345345','2012-11-05 14:45:39','Python基础教程','Yinliwnei'),(16,'9787115230270','234234234234','2012-11-05 17:25:41','Python基础教程','Evenvi'),(17,'9787115230270','3242342342342','2012-11-05 17:25:59','Python基础教程','Evenvi'),(18,'9787807663928','783734777','2012-11-06 10:32:41','往西，宁静的方向','liwemng');
+/*!40000 ALTER TABLE `Borr` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-11-09 13:32:44

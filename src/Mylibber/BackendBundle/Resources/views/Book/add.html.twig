@@ -2,11 +2,14 @@
 
   {% block body %}
   <div class="alert alert-info">
-  <h4>书籍录入</h4>
-</div>
+  <h4>书籍录入</h4></div>
+     <a href="../../test_douban.php" target="view_window"><span class="label label-success">从豆瓣获取图书参考信息</span></a>
+
 		<form action="{{ path('mylibber_backend_addnew')}}" method="post" {{ form_enctype(form) }} class="bloger">
 		    {{ form_widget(form) }} 
-		 
 		    <input type="submit" /> 
-		</form> 
+		</form>
+		<frame>
+			test_douban.php
+		</frame>
 {% endblock %}

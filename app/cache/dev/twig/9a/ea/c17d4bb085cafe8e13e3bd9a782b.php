@@ -29,21 +29,24 @@ class __TwigTemplate_9aeac17d4bb085cafe8e13e3bd9a782b extends Twig_Template
     {
         // line 4
         echo "  <div class=\"alert alert-info\">
-  <h4>书籍录入</h4>
-</div>
+  <h4>书籍录入</h4></div>
+     <a href=\"../../test_douban.php\" target=\"view_window\"><span class=\"label label-success\">从豆瓣获取图书参考信息</span></a>
+
 \t\t<form action=\"";
-        // line 7
+        // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_addnew"), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo " class=\"bloger\">
 \t\t    ";
-        // line 8
+        // line 9
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo " 
-\t\t 
 \t\t    <input type=\"submit\" /> 
-\t\t</form> 
+\t\t</form>
+\t\t<frame>
+\t\t\ttest_douban.php
+\t\t</frame>
 ";
     }
 
@@ -59,6 +62,6 @@ class __TwigTemplate_9aeac17d4bb085cafe8e13e3bd9a782b extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  40 => 8,  34 => 7,  29 => 4,  26 => 3,);
+        return array (  41 => 9,  35 => 8,  29 => 4,  26 => 3,);
     }
 }

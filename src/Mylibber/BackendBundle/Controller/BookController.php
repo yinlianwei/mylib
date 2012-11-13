@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Mylibber\MylibBundle\Entity\Enquiry;
 use Mylibber\MylibBundle\Form\EnquiryType;
 use Mylibber\BackendBundle\Form\Type\CategoryType;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
 * bookcontroller
@@ -27,18 +27,34 @@ class BookController extends Controller
         /*foreach ($categories as $key => $value) {
         	$category[$key] = $categories[$key]->getCategoryName();
         }*/
+
+
+		//GET http://api.douban.com/book/subject/isbn/{isbnID}
+		$url = 'http://api.douban.com/book/subject/isbn/9787532140091';//对应的API地址。
+		$xml =  simplexml_load_file($url); //解析XML文件形式的返回结果。
+		$link = array();
+		    //用来获取书籍的图片
+		foreach ($xml->children() as $item){
+		    if($item[@rel] == 'image'){
+				$bookPic = $item[@href];
+		    }
+		}
+
+		//echo $bookPic;
+
+
         foreach ($categories as $key => $value) {
         	$category[$categories[$key]->getCategoryName()] = $categories[$key]->getCategoryName();
         }
 		$book = new Book();
 		$form = $this->createFormBuilder($book)
+			->add('bookIsbn',null, array('label' => 'ISBN'))
 			->add('bookName',null, array('label' => '书籍名称'))
 			->add('categoryName', 'choice', array('label' => '书籍分类','choices' => $category))
 			->add('bookAuthor',null, array('label' => '作者'))
 			->add('bookPrice',null, array('label' => '价格'))
-			->add('bookPic',null, array('label' => '封面'))
+			->add('bookPic', null, array('label' => '封面','data'=>$bookPic))
 			->add('bookContent',null, array('label' => '简介'))
-			->add('bookIsbn',null, array('label' => 'ISBN'))
 			->add('bookBorr','choice', array('label' => '是否可借','choices' => array('1' => '可借', '2' => '不可借')))
 			->getForm();	
 
@@ -74,7 +90,7 @@ class BookController extends Controller
 				$em = $this->getDoctrine()->getEntityManager();
 	            $em->persist($book);
 	            $em->flush();
-	            echo '<div class="alert alert-error">执行成功</div>';
+	            //echo '<div class="alert alert-error">执行成功</div>';
 			}
 		}
 
