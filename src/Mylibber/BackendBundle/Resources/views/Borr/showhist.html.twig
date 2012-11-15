@@ -40,7 +40,8 @@
         <th><span class="label label-info">ISBN:</span></th>
         <th><span class="label label-info">借阅人:</span></th>
         <th><span class="label label-info">借阅号码:</span></th>
-        <th><span class="label label-info">借阅日期:</span></th></tr>
+        <th><span class="label label-info">借阅日期:</span></th>
+        <th><span class="label label-info">归还日期:</span></th></tr>
 {% for borr in borrs %}
     {% set i=i+1 %}
 
@@ -54,6 +55,7 @@
             <td>{{ borr.uName }}</td>
             <td>{{ borr.uBookId }}</td>
             <td>{{ borr.borrDate}}</td>
+            <td>{{ borr.givebackDate}}</td>
 {% endfor %}
 </table>
 {% endblock %}

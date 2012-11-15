@@ -10,6 +10,14 @@ class DefaultController extends Controller
 {
 	public function indexAction()
 	{
+
+        $categories = $this->getDoctrine()
+            ->getRepository('MylibberMylibBundle:Category')
+            ->findAll();
+        if (!$categories) {
+            throw $this->createNotFoundException('No categories found for id ');
+        }
+
 		$books = $this->getDoctrine()
 				->getRepository('MylibberMylibBundle:Book')
 				->findAll();
@@ -18,6 +26,7 @@ class DefaultController extends Controller
 		}
 		return $this->render('MylibberMylibBundle:Default:index.html.twig', array(
 			'books'  => $books,
+			'categories' => $categories,
 			));
 	}
 }

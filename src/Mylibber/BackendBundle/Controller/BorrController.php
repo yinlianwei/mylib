@@ -14,6 +14,7 @@ class BorrController extends Controller
 {
 	
 
+
 	public function borrAction()
 	{	
 		$borrs = $this->getDoctrine()
@@ -44,6 +45,7 @@ class BorrController extends Controller
 					->add('bookIsbn',null, array('label' => 'ISBN','data' => $book->getBookIsbn()))
 					->add('uName',null, array('label' => '借阅者'))
 					->add('borrDate',null, array('label' => '借阅日期','data' => date('Y-m-d G:i:s')))
+					->add('givebackDate',null, array('label' => '归还日期','read_only'=>'yes','data'=>''))
 					->add('uBookId',null, array('label' => '证件号码'))
 					->getForm();
 		return $this->render('MylibberBackendBundle:Book:borrBook.html.twig',
@@ -66,6 +68,7 @@ class BorrController extends Controller
 					->add('bookIsbn')
 					->add('uName')
 					->add('borrDate')
+					->add('givebackDate')
 					->add('uBookId')
 					->getForm();
 		$request = $this->getRequest();
@@ -110,7 +113,20 @@ class BorrController extends Controller
             ));
 	}
 
+	public function isbnBorrListAction($bookIsbn)
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+        $repository = $em->getRepository('MylibberMylibBundle:Borr');
 
+        $borrs = $repository->findBy(array('bookIsbn' => $bookIsbn));
+        if (!$borrs) {
+            throw $this->createNotFoundException('No Books found for id ');
+        }
+
+        return $this->render('MylibberBackendBundle:Borr:showhist.html.twig', array(
+            'borrs'  => $borrs,
+            ));
+	}
 	public function borrListAction()
 	{
 

@@ -55,6 +55,7 @@ class BookController extends Controller
 			->add('bookPrice',null, array('label' => '价格'))
 			->add('bookPic', null, array('label' => '封面','data'=>$bookPic))
 			->add('bookContent',null, array('label' => '简介'))
+			->add('bookOwner', null, array('label'=>'持有者'))
 			->add('bookBorr','choice', array('label' => '是否可借','choices' => array('1' => '可借', '2' => '不可借')))
 			->getForm();	
 
@@ -76,6 +77,7 @@ class BookController extends Controller
 			->add('bookPrice')
 			->add('bookPic')
 			->add('bookContent')
+			->add('bookOwner')
 			->add('bookIsbn')
 			->add('bookBorr')
 			->getForm();	
@@ -98,14 +100,20 @@ class BookController extends Controller
 	}
 
 
-	public function giveBackAction($id)
+	public function giveBackAction($bookIsbn)
 	{
 		$book = new Book();
 		$em=$this->getDoctrine()->getEntityManager();
-		$book = $em->getRepository('MylibberMylibBundle:Book')->find($id);
-
+		$book = $em->getRepository('MylibberMylibBundle:Book')->findOneByBookIsbn($bookIsbn);
 		$book->setBookBorr('1');
 		$em->flush();
+
+		date_default_timezone_set('PRC'); 
+		$em2=$this->getDoctrine()->getEntityManager();
+		$borr = $em2->getRepository('MylibberMylibBundle:Borr')->findOneBy(array('bookIsbn'=>$bookIsbn,'givebackDate'=>NULL));
+		$borr->setGivebackDate(date('Y-m-d G:i:s'));
+		$em2->flush();
+
 		return $this->redirect($this->generateUrl('mylibber_backend_borrbook'));
 	}
 

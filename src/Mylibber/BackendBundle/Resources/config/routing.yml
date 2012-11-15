@@ -79,7 +79,10 @@ mylibber_backend_borrList:
 mylibber_backend_borrSearchList:
     pattern:  /admin/borrSearchList
     defaults:  { _controller: MylibberBackendBundle:Borr:borrSearchList}
+mylibber_backend_isbnBorrList:
+    pattern:  /admin/isbnBorrList/{bookIsbn}
+    defaults: { _controller: MylibberBackendBundle:Borr:isbnBorrList }
 
 mylibber_backend_giveBack:
-    pattern: /admin/giveBack/{id}
+    pattern: /admin/giveBack/{bookIsbn}
     defaults: {_controller: MylibberBackendBundle:Book:giveBack}

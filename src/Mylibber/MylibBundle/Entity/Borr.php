@@ -50,6 +50,13 @@ class Borr
     private $borrDate;
 
     /**
+     * @var \DateTime $givebackDate
+     *
+     * @ORM\Column(name="givebackDate", type="string", length=255)
+     */
+    private $givebackDate;
+
+    /**
      * @var string $uName
      *
      * @ORM\Column(name="uName", type="string", length=255)
@@ -136,6 +143,31 @@ class Borr
     {
         return $this->borrDate;
     }
+
+
+    /**
+     * Set givebackDate
+     *
+     * @param \DateTime $givebackDate
+     * @return Borr
+     */
+    public function setGivebackDate($givebackDate)
+    {
+        $this->givebackDate = $givebackDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get givebackDate
+     *
+     * @return \DateTime 
+     */
+    public function getGivebackDate()
+    {
+        return $this->givebackDate;
+    }
+
 
     /**
      * Set bookName

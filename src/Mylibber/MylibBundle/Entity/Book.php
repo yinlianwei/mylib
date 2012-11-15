@@ -70,6 +70,12 @@ class Book
      */
     private $bookIsbn;
 
+    /**
+     * @var string $bookOwner
+     *
+     * @ORM\Column(name="bookOwner", type="string", length=255)
+     */
+    private $bookOwner;
 
      /**
      * @var string $bookBorr
@@ -275,6 +281,35 @@ class Book
     {
         return $this->bookBorrHis;
     }
+
+
+    /**
+     * Set bookOwner
+     *
+     * @param string $bookOwner
+     * @return Book
+     */
+    public function setBookOwner($bookOwner)
+    {
+        $this->bookOwner = $bookOwner;
+    
+        return $this;
+    }
+
+    /**
+     * Get bookOwner
+     *
+     * @return string 
+     */
+    public function getBookOwner()
+    {
+        return $this->bookOwner;
+    }
+
+
+
+
+
 
     /**
      * Set bookBorr
