@@ -1,0 +1,58 @@
+{% extends 'MylibberMylibBundle::layout.html.twig' %}
+
+  {% block body %}
+  <div class="alert alert-info">
+  <h4>电子书</h4></div>
+  </div>
+		 	{% set i=0 %}
+	<table class="table table-striped table-bordered table-condensed">
+		{% for ebook in ebooks %}
+	    {% set i=i+1 %}
+	            <tr>
+	            <td>{{ i }}</td>
+	            <td>{{ ebook.name }}</td>
+	            <td><a href=" "><a href="{{ ebook.path }}"><span class="label label-success">下载</span></a></td>
+	{% endfor %}
+	</table>
+{% endblock %}
+
+{% block sidebar %}
+<span class="label label-info">书籍检索</span>
+	<form action="{{ path('MylibberMylibBundle_search') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
+		<tbody>
+			<tr>
+	        	<td colspan="2">
+	       			<input type="text" name="strText" id="strText" value="">&nbsp;&nbsp;
+	      		</td>
+	      	</tr>
+	      	<tr>
+	        	<td align="right">请选择检索类型：</td>
+	        	<td>
+	          		<select class="option" name="SearchType" size="1" style="width:100px;">
+	                    <option value="title">题&nbsp;&nbsp;名</option>
+	                   	<option value="isbn">ISBN/ISSN</option>
+	                </select> 
+	            </td>
+	      	</tr>
+	      	<tr>
+	      		<td>
+	      			<input type="submit" class="submit" value="检索">
+	      		</td>
+	      	</tr>
+		</tbody>
+
+	</form>
+
+
+	{% set i=0 %}
+	<span class="label label-info">书籍分类:</span>
+	<table class="table table-striped table-bordered table-condensed">
+	{% for category in categories %}
+	    {% set i=i+1 %}
+	            <tr>
+	            	
+	           		<td><i class="icon-book"></i>{{ category.categoryName }}</td>
+	            </tr>
+	{% endfor %}
+	</table>
+{% endblock %}

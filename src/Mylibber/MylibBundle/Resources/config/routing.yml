@@ -3,9 +3,13 @@ mylibber_mylib_homepage:
     defaults: { _controller: MylibberMylibBundle:Default:index }
 MylibberMylibBundle_homepage: 
     pattern :   /
-    defaults :  {  _controller: MylibberMylibBundle:Default:index  } 
+    defaults :  {  _controller: MylibberMylibBundle:Default:index  }
     requirements : 
         _method :   GET
+
+mylibberMulibBUndle_ebook:
+    pattern:   /ebook
+    defaults:  { _controller: MylibberMylibBundle:Page:ebook}
 
 MylibberMylibBundle_about:
     pattern:    /about

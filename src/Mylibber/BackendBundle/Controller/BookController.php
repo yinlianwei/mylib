@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Mylibber\MylibBundle\Entity\Enquiry;
 use Mylibber\MylibBundle\Form\EnquiryType;
 use Mylibber\BackendBundle\Form\Type\CategoryType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
 * bookcontroller
@@ -108,7 +107,7 @@ class BookController extends Controller
 		$book->setBookBorr('1');
 		$em->flush();
 
-		date_default_timezone_set('PRC'); 
+		//date_default_timezone_set('PRC'); 
 		$em2=$this->getDoctrine()->getEntityManager();
 		$borr = $em2->getRepository('MylibberMylibBundle:Borr')->findOneBy(array('bookIsbn'=>$bookIsbn,'givebackDate'=>NULL));
 		$borr->setGivebackDate(date('Y-m-d G:i:s'));
@@ -145,18 +144,6 @@ class BookController extends Controller
 		return $this->render('MylibberBackendBundle:Book:config.html.twig');
 	}
 
-	public function showhistAction()
-	{
-		$em = $this->getDoctrine()->getEntityManager();
-	    $borr = $em->getRepository('AcmeStoreBundle:Borr')->find($id);
-
-	    if (!$borr) {
-	        throw $this->createNotFoundException('No product found for id ');
-	    }
-		return $this->render('MylibberBackendBundle:Book:showhist.html.twig',
-			array('form'=>$form->createView()
-			));
-	}
 }
 
 

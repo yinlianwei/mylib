@@ -159,7 +159,7 @@ class __TwigTemplate_49d59cbbec68f19de88736203a9952a6 extends Twig_Template
             <td><a href=\"";
             // line 65
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_deletebook", array("id" => $this->getAttribute($this->getContext($context, "borr"), "Id"))), "html", null, true);
-            echo "\"><span class=\"icon-remove\"></span></a></td>
+            echo "\"><span class=\"icon-trash\"></span></a></td>
 ";
         }
         $_parent = $context['_parent'];
@@ -168,42 +168,6 @@ class __TwigTemplate_49d59cbbec68f19de88736203a9952a6 extends Twig_Template
         // line 67
         echo "</table>
 
-
-<?php if (\$pager->haveToPaginate()): ?> 
-  <div class=\"pagination\"> 
-    <a href=\"<?php echo url_for('category', \$category) ?>?page=1\"> 
-      <img src=\"/images/first.png\" alt=\"First page\" title=\"First page\" /> 
-    </a> 
-  
-    <a href=\"<?php echo url_for('category', \$category) ?>?page=<?php echo \$pager->getPreviousPage() ?>\"> 
-      <img src=\"/images/previous.png\" alt=\"Previous page\" title=\"Previous page\" /> 
-    </a> 
-  
-    <?php foreach (\$pager->getLinks() as \$page): ?> 
-      <?php if (\$page == \$pager->getPage()): ?> 
-        <?php echo \$page ?> 
-      <?php else: ?> 
-        <a href=\"<?php echo url_for('category', \$category) ?>?page=<?php echo \$page ?>\"><?php echo \$page ?></a> 
-      <?php endif; ?> 
-    <?php endforeach; ?> 
-  
-    <a href=\"<?php echo url_for('category', \$category) ?>?page=<?php echo \$pager->getNextPage() ?>\"> 
-      <img src=\"/images/next.png\" alt=\"Next page\" title=\"Next page\" /> 
-    </a> 
-  
-    <a href=\"<?php echo url_for('category', \$category) ?>?page=<?php echo \$pager->getLastPage() ?>\"> 
-      <img src=\"/images/last.png\" alt=\"Last page\" title=\"Last page\" /> 
-    </a> 
-  </div> 
-<?php endif; ?> 
-  
-<div class=\"pagination_desc\"> 
-  <strong><?php echo count(\$pager) ?></strong> jobs in this category 
-  
-  <?php if (\$pager->haveToPaginate()): ?> 
-    - page <strong><?php echo \$pager->getPage() ?>/<?php echo \$pager->getLastPage() ?></strong> 
-  <?php endif; ?> 
-</div> 
 
 
 <center>

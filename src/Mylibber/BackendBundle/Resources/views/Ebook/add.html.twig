@@ -1,0 +1,11 @@
+{% extends 'MylibberBackendBundle::layout.html.twig' %}
+
+  {% block body %}
+  <div class="alert alert-info">
+  <h4>电子书录入</h4></div>
+		<form action="{{ path('mylibber_backend_addebook')}}" method="post" {{ form_enctype(form) }} class="bloger">
+			 {{ form_widget(form) }}
+
+   			 <input type="submit" value="上传电子书" />
+		</form>
+{% endblock %}

@@ -44,9 +44,6 @@ class __TwigTemplate_76208610a2f58675c9292b2895396221 extends Twig_Template
         echo " 
 \t\t    <input type=\"submit\" /> 
 \t\t</form>
-\t\t<frame>
-\t\t\ttest_douban.php
-\t\t</frame>
 ";
     }
 

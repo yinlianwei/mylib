@@ -10,6 +10,28 @@ use Mylibber\MylibBundle\Form\EnquiryType;
 class PageController extends Controller
 {
 
+	public function ebookAction()
+	{
+		$ebooks = $this->getDoctrine()
+		->getRepository('MylibberMylibBundle:Ebook')
+		->findAll();
+		if (!$ebooks) {
+			throw $this->createNotFoundException('No borr ebooks found for id ');
+		}
+		
+		$categories = $this->getDoctrine()
+		->getRepository('MylibberMylibBundle:Category')
+		->findAll();
+		if (!$categories) {
+			throw $this->createNotFoundException('No categories found for id ');
+		}
+		
+		return $this->render('MylibberMylibBundle:Page:ebook.html.twig', array(
+				'ebooks'  => $ebooks,
+				'categories' => $categories,
+		));
+	}
+	
 	public function aboutAction()
 	{
 		return $this->render('MylibberMylibBundle:Page:about.html.twig');

@@ -277,6 +277,21 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::giveBackAction',)), array('_route' => 'mylibber_backend_giveBack'));
         }
 
+        // mylibber_backend_addebookform
+        if ($pathinfo === '/admin/addebookform') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\EbookController::addebookformAction',  '_route' => 'mylibber_backend_addebookform',);
+        }
+
+        // mylibber_backend_addebook
+        if ($pathinfo === '/admin/addebook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\EbookController::addebookAction',  '_route' => 'mylibber_backend_addebook',);
+        }
+
+        // mylibber_backend_showebook
+        if ($pathinfo === '/admin/showebook') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\EbookController::showebookAction',  '_route' => 'mylibber_backend_showebook',);
+        }
+
         // mylibber_mylib_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'mylibber_mylib_homepage'));
@@ -296,6 +311,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',  '_route' => 'MylibberMylibBundle_homepage',);
         }
         not_MylibberMylibBundle_homepage:
+
+        // mylibberMulibBUndle_ebook
+        if ($pathinfo === '/ebook') {
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::ebookAction',  '_route' => 'mylibberMulibBUndle_ebook',);
+        }
 
         // MylibberMylibBundle_about
         if ($pathinfo === '/about') {

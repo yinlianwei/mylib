@@ -27,17 +27,20 @@
                   <li class="active">
                     <a href="{{ path('MylibberMylibBundle_homepage')}}">首页</a>
                   </li>
+                  <li><a href="{{ path('mylibberMulibBUndle_ebook') }}">电子书</a></li>
                   <li><a href="{{ path('MylibberMylibBundle_about') }}">关于</a></li>
-                  <li><a href="{{ path('mylibber_backend_homepage')}}">管理</a></li>
-                </ul>
+                  </ul>
+                  <ul class="nav pull-right">
+                    <li><a href="{{ path('mylibber_backend_homepage')}}">管理</a></li>
+                  </ul>
             </div>
           </div>
         </div>
         <section id="wrapper">
             <header id="header">
-                <hgroup>
-                    <h4>{% block blog_title %}<a href="{{path('MylibberMylibBundle_homepage')}}">网上图书馆</a>{% endblock %}</h4>
+                <hgroup> 
                     <h5>{% block blog_tagline %}<a href="{{path('MylibberMylibBundle_homepage')}}">Books management system in symfony2</a>{% endblock %}</h5>
+                    <h4>{% block blog_title %}<a href="{{path('MylibberMylibBundle_homepage')}}"> &nbsp;</a>{% endblock %}</h4>
                 </hgroup>
             </header>
 

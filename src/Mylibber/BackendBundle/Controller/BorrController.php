@@ -39,7 +39,7 @@ class BorrController extends Controller
 
 
 		$borr = new Borr();
-		date_default_timezone_set('PRC'); 
+		//date_default_timezone_set('PRC'); 
 		$form = $this->createFormBuilder($borr)
 					->add('bookName',null, array('label' => '书籍名称','data' => $book->getBookName()))
 					->add('bookIsbn',null, array('label' => 'ISBN','data' => $book->getBookIsbn()))

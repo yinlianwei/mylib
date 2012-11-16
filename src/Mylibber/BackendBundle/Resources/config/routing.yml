@@ -86,3 +86,15 @@ mylibber_backend_isbnBorrList:
 mylibber_backend_giveBack:
     pattern: /admin/giveBack/{bookIsbn}
     defaults: {_controller: MylibberBackendBundle:Book:giveBack}
+
+#ebook
+mylibber_backend_addebookform:
+    pattern:    /admin/addebookform
+    defaults:   { _controller: MylibberBackendBundle:Ebook:addebookform }
+mylibber_backend_addebook:
+    pattern:    /admin/addebook
+    defaults:   { _controller: MylibberBackendBundle:Ebook:addebook }
+
+mylibber_backend_showebook:
+    pattern:    /admin/showebook
+    defaults: {_controller: MylibberBackendBundle:Ebook:showebook}
