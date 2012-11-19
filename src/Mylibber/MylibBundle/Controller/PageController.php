@@ -31,6 +31,51 @@ class PageController extends Controller
 				'categories' => $categories,
 		));
 	}
+	public function showEbookByCategoryAction($category)
+	{
+		$em = $this->getDoctrine()->getEntityManager();
+		$repository = $em->getRepository('MylibberMylibBundle:Ebook');
+		$ebooks = $repository->findBy(array('category' => $category));
+			
+		if(!$ebooks){
+			throw $this->createNotFoundException('No ebooks found for category');
+		}
+		$categories = $this->getDoctrine()
+				->getRepository('MylibberMylibBundle:Category')
+				->findAll();
+		if (!$categories) {
+			throw $this->createNotFoundException('No categories found for id ');
+		}
+		
+		return $this->render('MylibberMylibBundle:Page:ebook.html.twig', array(
+				'ebooks'  => $ebooks,
+				'categories' => $categories,
+		));
+	}
+	
+	public function searchEbookAction()
+	{
+		$name = $condition = trim($_GET['strText']);
+		$em = $this->getDoctrine()->getEntityManager();
+		$repository = $em->getRepository('MylibberMylibBundle:Ebook');
+		$ebooks = $repository->findBy(array('name' => $name));
+			
+		if(!$ebooks){
+			throw $this->createNotFoundException('No ebooks found for category');
+		}
+		$categories = $this->getDoctrine()
+		->getRepository('MylibberMylibBundle:Category')
+		->findAll();
+		if (!$categories) {
+			throw $this->createNotFoundException('No categories found for id ');
+		}
+	
+		return $this->render('MylibberMylibBundle:Page:ebook.html.twig', array(
+				'ebooks'  => $ebooks,
+				'categories' => $categories,
+		));
+	}
+	
 	
 	public function aboutAction()
 	{

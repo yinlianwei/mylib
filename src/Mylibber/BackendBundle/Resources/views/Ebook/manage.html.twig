@@ -9,6 +9,7 @@
 		<tr>
 			<th></th>
 			<th><span class="label label-info">电子书名:</span></th>
+			<th><span class="label label-info">分类:</span></th>
 			<th><span class="label label-info">删除:</span></th>
 			<th><span class="label label-info">下载链接:</span></th>
 		{% for ebook in ebooks %}
@@ -16,7 +17,8 @@
 	            <tr>
 	            <td>{{ i }}</td>
 	            <td>{{ ebook.name }}</td>
-	            <td><a href=" "><span class="label label-important">删除</span></a></td>
+	            <td>{{ ebook.category }}</td>
+	            <td><a href=" {{ path('mylibber_backend_deleteebook',{'id':ebook.id})}} "><span class="label label-important">删除</span></a></td>
 	            <td><a href=" "><a href="{{ ebook.path }}"><span class="label label-success">下载</span></a></td>
 	{% endfor %}
 	</table>

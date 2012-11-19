@@ -31,7 +31,7 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
         <title>";
         // line 5
         $this->displayBlock('title', $context, $blocks);
-        echo " - symblog</title>
+        echo " - mylib</title>
         <!-​​-[if lt IE 9]>
             <script src=\"http://html5shim.googlecode.com/svn/trunk/html5.js\"></script>
         <![endif]-->
@@ -58,14 +58,10 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_homepage"), "html", null, true);
         echo "\">首页</a>
                   </li>
-                  <li><a href=\"";
-        // line 36
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_about"), "html", null, true);
-        echo "\">关于</a></li>
                 </ul>
                 <ul class=\"nav pull-right\">
                     <li><a href=\"";
-        // line 39
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_homepage"), "html", null, true);
         echo "\">管理</a></li>
                   </ul>
@@ -76,41 +72,41 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
             <header id=\"header\">
                 <hgroup>
                     <h5>";
-        // line 47
+        // line 46
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h5>
                     <h4>";
-        // line 48
+        // line 47
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h4>
                 </hgroup>
             </header>
             <aside class=\"sidebar\">
                 ";
-        // line 52
+        // line 51
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 53
+        // line 52
         echo "            </aside>
             <section class=\"main-col\">
                 ";
-        // line 55
+        // line 54
         $this->displayBlock('body', $context, $blocks);
-        // line 56
+        // line 55
         echo "            </section>
 
 
             <div id=\"footer\">
                 ";
-        // line 60
+        // line 59
         $this->displayBlock('footer', $context, $blocks);
-        // line 63
+        // line 62
         echo "            </div>
         </section>
 
         ";
-        // line 66
+        // line 65
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 67
+        // line 66
         echo "    </body>
 </html>";
     }
@@ -118,7 +114,7 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        echo "symblog";
+        echo "mylib";
     }
 
     // line 9
@@ -178,7 +174,7 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
         ";
     }
 
-    // line 47
+    // line 46
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -186,7 +182,7 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
         echo "\">Books Management System in Symfony2</a>";
     }
 
-    // line 48
+    // line 47
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"";
@@ -194,25 +190,25 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
         echo "\"> &nbsp;</a>";
     }
 
-    // line 52
+    // line 51
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 55
+    // line 54
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 60
+    // line 59
     public function block_footer($context, array $blocks = array())
     {
-        // line 61
+        // line 60
         echo "                    Symfony2 mylib - created by <a href=\"https://www.github.com/yinlianwei/\">Evenvi</a>
                 ";
     }
 
-    // line 66
+    // line 65
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -229,6 +225,6 @@ class __TwigTemplate_ab242098342ba222c1a276dd2d91d4fa extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  214 => 66,  209 => 61,  206 => 60,  201 => 55,  196 => 52,  188 => 48,  180 => 47,  174 => 23,  170 => 22,  166 => 21,  162 => 20,  158 => 19,  154 => 18,  150 => 17,  145 => 15,  141 => 14,  137 => 13,  133 => 12,  129 => 11,  126 => 10,  123 => 9,  117 => 5,  112 => 67,  110 => 66,  105 => 63,  103 => 60,  97 => 56,  95 => 55,  91 => 53,  89 => 52,  82 => 48,  78 => 47,  61 => 36,  56 => 34,  40 => 25,  38 => 9,  31 => 5,  25 => 1,  116 => 58,  108 => 53,  100 => 48,  88 => 39,  80 => 34,  67 => 39,  59 => 19,  51 => 32,  44 => 9,  41 => 8,  35 => 5,  30 => 4,  27 => 3,);
+        return array (  210 => 65,  205 => 60,  202 => 59,  197 => 54,  192 => 51,  184 => 47,  176 => 46,  170 => 23,  166 => 22,  162 => 21,  158 => 20,  154 => 19,  150 => 18,  146 => 17,  141 => 15,  137 => 14,  133 => 13,  129 => 12,  125 => 11,  122 => 10,  119 => 9,  113 => 5,  108 => 66,  106 => 65,  101 => 62,  99 => 59,  93 => 55,  91 => 54,  87 => 52,  85 => 51,  78 => 47,  74 => 46,  63 => 38,  56 => 34,  51 => 32,  40 => 25,  38 => 9,  31 => 5,  25 => 1,);
     }
 }

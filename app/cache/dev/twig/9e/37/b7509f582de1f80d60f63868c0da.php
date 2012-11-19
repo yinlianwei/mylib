@@ -31,7 +31,7 @@ class __TwigTemplate_9e37b7509f582de1f80d60f63868c0da extends Twig_Template
         <title>";
         // line 5
         $this->displayBlock('title', $context, $blocks);
-        echo " - symblog</title>
+        echo " - mylib</title>
 
         ";
         // line 7
@@ -120,7 +120,7 @@ class __TwigTemplate_9e37b7509f582de1f80d60f63868c0da extends Twig_Template
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        echo "symblog";
+        echo "mylib";
     }
 
     // line 7

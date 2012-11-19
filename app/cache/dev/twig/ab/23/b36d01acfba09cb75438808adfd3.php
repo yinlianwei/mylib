@@ -76,7 +76,7 @@ class __TwigTemplate_ab23b36d01acfba09cb75438808adfd3 extends Twig_Template
         echo "<span class=\"label label-info\">书籍检索</span>
 \t<form action=\"";
         // line 21
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_searchEbook"), "html", null, true);
         echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
 \t\t<tbody>
 \t\t\t<tr>
@@ -89,7 +89,6 @@ class __TwigTemplate_ab23b36d01acfba09cb75438808adfd3 extends Twig_Template
 \t        \t<td>
 \t          \t\t<select class=\"option\" name=\"SearchType\" size=\"1\" style=\"width:100px;\">
 \t                    <option value=\"title\">题&nbsp;&nbsp;名</option>
-\t                   \t<option value=\"isbn\">ISBN/ISSN</option>
 \t                </select> 
 \t            </td>
 \t      \t</tr>
@@ -104,24 +103,26 @@ class __TwigTemplate_ab23b36d01acfba09cb75438808adfd3 extends Twig_Template
 
 
 \t";
-        // line 47
+        // line 46
         $context["i"] = 0;
-        // line 48
+        // line 47
         echo "\t<span class=\"label label-info\">书籍分类:</span>
 \t<table class=\"table table-striped table-bordered table-condensed\">
 \t";
-        // line 50
+        // line 49
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "categories"));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 51
+            // line 50
             echo "\t    ";
             $context["i"] = ($this->getContext($context, "i") + 1);
-            // line 52
+            // line 51
             echo "\t            <tr>
 \t            \t
-\t           \t\t<td><i class=\"icon-book\"></i>";
-            // line 54
+\t           \t\t<td><a href=\"";
+            // line 53
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("mylibber_backend_showEbookByCategory", array("category" => $this->getAttribute($this->getContext($context, "category"), "categoryName"))), "html", null, true);
+            echo "\"><i class=\"icon-book\"></i>";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "category"), "categoryName"), "html", null, true);
             echo "</td>
 \t            </tr>
@@ -130,7 +131,7 @@ class __TwigTemplate_ab23b36d01acfba09cb75438808adfd3 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 57
+        // line 56
         echo "\t</table>
 ";
     }
@@ -147,6 +148,6 @@ class __TwigTemplate_ab23b36d01acfba09cb75438808adfd3 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  132 => 57,  123 => 54,  119 => 52,  116 => 51,  112 => 50,  108 => 48,  106 => 47,  77 => 21,  74 => 20,  71 => 19,  66 => 16,  58 => 14,  54 => 13,  50 => 12,  47 => 11,  44 => 10,  40 => 9,  37 => 8,  35 => 7,  30 => 4,  27 => 3,);
+        return array (  133 => 56,  122 => 53,  118 => 51,  115 => 50,  111 => 49,  107 => 47,  105 => 46,  77 => 21,  74 => 20,  71 => 19,  66 => 16,  58 => 14,  54 => 13,  50 => 12,  47 => 11,  44 => 10,  40 => 9,  37 => 8,  35 => 7,  30 => 4,  27 => 3,);
     }
 }

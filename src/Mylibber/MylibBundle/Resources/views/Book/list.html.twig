@@ -4,20 +4,22 @@
 
 {% block body %}
     <article class="book">
-       {% set i=0 %}
-{% for book in books %}
-    {% set i=i+1 %}
-    <div class="alert alert-info">
-            {{ i }}. 
-            <span class="label">书籍名称:</span>{{ book.bookName }}&nbsp;&nbsp;
-            <span class="label">作者:</span> {{ book.bookAuthor}}&nbsp;&nbsp;
-            <span class="label">ISBN:</span> {{ book.bookIsbn}}&nbsp;&nbsp;
-            </span>
-            {% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %} <span class="label">不可借阅</span> {% endif %}
-            <a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><span class="badge badge-info">详细信息...</span></a>
-    </div>
+    <div class="alert alert-info">结果列表</div>
+    {% set i=0 %}
+	<table class="table table-striped table-bordered table-condensed">
+		{% for book in books %}
+	    {% set i=i+1 %}
+	            <tr>
+	            <td>{{ i }}</td>
+	            <td>书籍名称:</span>{{ book.bookName }}</td>
+	            <td>作者:</span> {{ book.bookAuthor}}</td>
+	            <td>ISBN:</span> {{ book.bookIsbn}}</td>
+	            <td>{% if  book.BookBorr == 1 %} <span class="label label-success">可借阅</span>  {% else %} <span class="label">不可借阅</span> {% endif %}
+            </td>
+            <td><a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><span class="badge badge-info">详细信息...</span></a></td>
+	{% endfor %}
+	</table>
 
-{% endfor %}
 
        
 

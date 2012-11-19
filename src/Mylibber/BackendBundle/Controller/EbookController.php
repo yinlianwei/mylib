@@ -13,9 +13,18 @@ class EbookController extends Controller
 {
 	public function addebookformAction()
 	{
+		$categories = $this->getDoctrine()
+            ->getRepository('MylibberMylibBundle:Category')
+            ->findAll();
+        foreach ($categories as $key => $value) {
+        	$category[$categories[$key]->getCategoryName()] = $categories[$key]->getCategoryName();
+        }
+
+
 		$ebook = new Ebook();
 		$form = $this->createFormBuilder($ebook)
-				->add('name')
+				->add('name',null, array('label' => '书名'))
+				->add('category','choice', array('label' => '书籍分类','choices' => $category))
 				->add('file')
 				->getForm();
 	
@@ -31,6 +40,7 @@ class EbookController extends Controller
 		$form = $this->createFormBuilder($ebook)
 				->add('name')
 				->add('file')
+				->add('category')
 				->getForm();
 		
 		if ($this->getRequest()->getMethod() === 'POST') {
@@ -61,9 +71,20 @@ class EbookController extends Controller
 		));
 	}
 	
-	public function deleteebookAction()
+	public function deleteebookAction($id)
 	{
+		$em = $this->getDoctrine()->getEntityManager();
+		$ebook = $em->getRepository('MylibberMylibBundle:Ebook')->find($id);
 		
+		if (!$ebook) {
+			throw $this->createNotFoundException('No Ebook found for id '.$id);
+		}
+		
+		$em->remove($ebook);
+		$em->flush();
+		
+		return $this->redirect($this->generateUrl('mylibber_backend_ebook'));
 	}
+
 }
 ?>

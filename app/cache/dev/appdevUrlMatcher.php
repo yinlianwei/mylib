@@ -292,6 +292,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\EbookController::showebookAction',  '_route' => 'mylibber_backend_showebook',);
         }
 
+        // mylibber_backend_deleteebook
+        if (0 === strpos($pathinfo, '/admin/deleteebook') && preg_match('#^/admin/deleteebook/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\EbookController::deleteebookAction',)), array('_route' => 'mylibber_backend_deleteebook'));
+        }
+
         // mylibber_mylib_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'mylibber_mylib_homepage'));
@@ -315,6 +320,20 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // mylibberMulibBUndle_ebook
         if ($pathinfo === '/ebook') {
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::ebookAction',  '_route' => 'mylibberMulibBUndle_ebook',);
+        }
+
+        // mylibber_backend_showEbookByCategory
+        if (0 === strpos($pathinfo, '/showEbookByCategory') && preg_match('#^/showEbookByCategory/(?<category>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::showEbookByCategoryAction',)), array('_route' => 'mylibber_backend_showEbookByCategory'));
+        }
+
+        // mylibber_backend_searchEbook
+        if (rtrim($pathinfo, '/') === '/searchEbook') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'mylibber_backend_searchEbook');
+            }
+
+            return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\PageController::searchEbookAction',  '_route' => 'mylibber_backend_searchEbook',);
         }
 
         // MylibberMylibBundle_about
@@ -352,6 +371,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // MylibberMylibBundle_search
         if ($pathinfo === '/bookSearch') {
             return array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::bookSearchAction',  '_route' => 'MylibberMylibBundle_search',);
+        }
+
+        // MylibberMylibBundle_showByCategory
+        if (0 === strpos($pathinfo, '/showByCategory') && preg_match('#^/showByCategory/(?<category>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\MylibBundle\\Controller\\BookController::showByCategoryAction',)), array('_route' => 'MylibberMylibBundle_showByCategory'));
         }
 
         // MylibberMylibBundle_showbook

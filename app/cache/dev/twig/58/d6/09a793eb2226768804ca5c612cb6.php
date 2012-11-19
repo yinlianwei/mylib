@@ -94,25 +94,22 @@ class __TwigTemplate_58d609a793eb2226768804ca5c612cb6 extends Twig_Template
         // line 26
         echo "
 <span class=\"label label-info\">书籍检索</span>
-\t<form action=\"openlink.php\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
+\t<form action=\"";
+        // line 28
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_search"), "html", null, true);
+        echo "\" method=\"get\" name=\"f\" onsubmit=\"return chkForm(this)\" id=\"f\">
 \t\t<tbody>
 \t\t\t<tr>
-\t        \t<td colspan=\"2\"><input type=\"hidden\" id=\"historyCount\" name=\"historyCount\" value=\"1\">
-\t       \t\t\t<input type=\"text\" size=\"45\" maxlength=\"250\" name=\"strText\" id=\"strText\" value=\"\" class=\"paddingleft\">&nbsp;&nbsp;
-\t                    <script language=\"javascript\" type=\"text/javascript\">
-\t                        document.f.strText.focus();
-\t                    </script>
-\t      \t\t \t
+\t        \t<td colspan=\"2\">
+\t       \t\t\t<input type=\"text\" name=\"strText\" id=\"strText\" value=\"\">&nbsp;&nbsp;
 \t      \t\t</td>
 \t      \t</tr>
 \t      \t<tr>
 \t        \t<td align=\"right\">请选择检索类型：</td>
 \t        \t<td>
-\t          \t\t<select class=\"option\" name=\"strSearchType\" size=\"1\" style=\"width:100px;\">
+\t          \t\t<select class=\"option\" name=\"SearchType\" size=\"1\" style=\"width:100px;\">
 \t                    <option value=\"title\">题&nbsp;&nbsp;名</option>
-\t                    <option value=\"author\">责任者</option>
 \t                   \t<option value=\"isbn\">ISBN/ISSN</option>
-\t                    <option value=\"publisher\">出版社</option>
 \t                </select> 
 \t            </td>
 \t      \t</tr>
@@ -139,6 +136,6 @@ class __TwigTemplate_58d609a793eb2226768804ca5c612cb6 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  93 => 26,  90 => 25,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  66 => 16,  58 => 15,  54 => 14,  50 => 13,  40 => 8,  36 => 7,  30 => 3,  27 => 2,);
+        return array (  97 => 28,  93 => 26,  90 => 25,  82 => 20,  78 => 19,  74 => 18,  70 => 17,  66 => 16,  58 => 15,  54 => 14,  50 => 13,  40 => 8,  36 => 7,  30 => 3,  27 => 2,);
     }
 }

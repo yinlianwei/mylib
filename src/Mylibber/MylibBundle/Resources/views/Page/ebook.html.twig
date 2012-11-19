@@ -18,7 +18,7 @@
 
 {% block sidebar %}
 <span class="label label-info">书籍检索</span>
-	<form action="{{ path('MylibberMylibBundle_search') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
+	<form action="{{ path('mylibber_backend_searchEbook') }}" method="get" name="f" onsubmit="return chkForm(this)" id="f">
 		<tbody>
 			<tr>
 	        	<td colspan="2">
@@ -30,7 +30,6 @@
 	        	<td>
 	          		<select class="option" name="SearchType" size="1" style="width:100px;">
 	                    <option value="title">题&nbsp;&nbsp;名</option>
-	                   	<option value="isbn">ISBN/ISSN</option>
 	                </select> 
 	            </td>
 	      	</tr>
@@ -51,7 +50,7 @@
 	    {% set i=i+1 %}
 	            <tr>
 	            	
-	           		<td><i class="icon-book"></i>{{ category.categoryName }}</td>
+	           		<td><a href="{{ path('mylibber_backend_showEbookByCategory',{'category':category.categoryName}) }}"><i class="icon-book"></i>{{ category.categoryName }}</td>
 	            </tr>
 	{% endfor %}
 	</table>

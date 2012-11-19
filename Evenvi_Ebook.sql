@@ -27,6 +27,7 @@ CREATE TABLE `Ebook` (
   `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `File` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Path` varchar(255) COLLATE utf8_unicode_ci,
+  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -37,7 +38,7 @@ CREATE TABLE `Ebook` (
 
 LOCK TABLES `Ebook` WRITE;
 /*!40000 ALTER TABLE `Ebook` DISABLE KEYS */;
-INSERT INTO `Ebook` VALUES (1,'MongoDB快速入门','ebook','web');
+INSERT INTO `Ebook` VALUES (1,'MongoDB快速入门','ebook','web','jsj');
 /*!40000 ALTER TABLE `Ebook` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -86,7 +86,7 @@ class __TwigTemplate_9ec10cd83ca5e0ec0c25c94c677565cc extends Twig_Template
           <a href=\"";
             // line 22
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
-            echo "\"><span class=\"label\">详细信息...</span></a>
+            echo "\"><span class=\"label label-info\">详细信息...</span></a>
         </div>
      ";
         }
@@ -152,10 +152,12 @@ class __TwigTemplate_9ec10cd83ca5e0ec0c25c94c677565cc extends Twig_Template
             // line 64
             echo "\t            <tr>
 \t            \t
-\t           \t\t<td><i class=\"icon-book\"></i>";
+\t           \t\t<td><a href=\"";
             // line 66
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_showByCategory", array("category" => $this->getAttribute($this->getContext($context, "category"), "categoryName"))), "html", null, true);
+            echo "\"><i class=\"icon-book\"></i>";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "category"), "categoryName"), "html", null, true);
-            echo "</td>
+            echo "</a</td>
 \t            </tr>
 \t";
         }
@@ -181,6 +183,6 @@ class __TwigTemplate_9ec10cd83ca5e0ec0c25c94c677565cc extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  164 => 69,  155 => 66,  151 => 64,  148 => 63,  144 => 62,  140 => 60,  138 => 59,  108 => 32,  104 => 30,  101 => 29,  95 => 25,  86 => 22,  81 => 20,  77 => 19,  73 => 18,  65 => 17,  61 => 16,  49 => 11,  43 => 10,  39 => 8,  35 => 7,  30 => 4,  27 => 3,);
+        return array (  166 => 69,  155 => 66,  151 => 64,  148 => 63,  144 => 62,  140 => 60,  138 => 59,  108 => 32,  104 => 30,  101 => 29,  95 => 25,  86 => 22,  81 => 20,  77 => 19,  73 => 18,  65 => 17,  61 => 16,  49 => 11,  43 => 10,  39 => 8,  35 => 7,  30 => 4,  27 => 3,);
     }
 }

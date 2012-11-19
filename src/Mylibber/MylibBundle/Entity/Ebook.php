@@ -23,6 +23,7 @@ class Ebook
      * @Assert\NotBlank
      */
     public $name;
+
     /**
      * @Assert\File(maxSize="6000000")
      */
@@ -32,6 +33,12 @@ class Ebook
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $path;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     */
+    public $category;
 
     public function getAbsolutePath()
     {
@@ -82,7 +89,6 @@ class Ebook
             return;
         }
 
-       
         // you must throw an exception here if the file cannot be moved
         // so that the entity is not persisted to the database
         // which the UploadedFile move() method does

@@ -94,7 +94,9 @@ mylibber_backend_addebookform:
 mylibber_backend_addebook:
     pattern:    /admin/addebook
     defaults:   { _controller: MylibberBackendBundle:Ebook:addebook }
-
 mylibber_backend_showebook:
     pattern:    /admin/showebook
     defaults: {_controller: MylibberBackendBundle:Ebook:showebook}
+mylibber_backend_deleteebook:
+    pattern:   /admin/deleteebook/{id}
+    defaults: {_controller: MylibberBackendBundle:Ebook:deleteebook}

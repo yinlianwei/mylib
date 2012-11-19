@@ -10,7 +10,14 @@ MylibberMylibBundle_homepage:
 mylibberMulibBUndle_ebook:
     pattern:   /ebook
     defaults:  { _controller: MylibberMylibBundle:Page:ebook}
-
+mylibber_backend_showEbookByCategory:
+    pattern:   /showEbookByCategory/{category}
+    defaults: {_controller: MylibberMylibBundle:Page:showEbookByCategory}
+mylibber_backend_searchEbook:
+    pattern:   /searchEbook/
+    defaults: {_controller: MylibberMylibBundle:Page:searchEbook}
+    
+    
 MylibberMylibBundle_about:
     pattern:    /about
     defaults:   { _controller: MylibberMylibBundle:Page:about}
@@ -34,11 +41,14 @@ MylibberMylibBundle_book_add:
 MylibberMylibBundle_search:
     pattern:   /bookSearch
     defaults:  {_controller: MylibberMylibBundle:Book:bookSearch}
-
+    
+MylibberMylibBundle_showByCategory:
+    pattern:   /showByCategory/{category}
+    defaults:  {_controller: MylibberMylibBundle:Book:showByCategory}
+    
 MylibberMylibBundle_showbook:
     pattern:   /showbook
     defaults:  {_controller: MylibberMylibBundle:Book:showbook}
-
 MylibberMylibBundle_list:
     pattern:   /list/
     defaults:  {_controller: MylibberMylibBundle:Book:showbook}
@@ -46,3 +56,4 @@ MylibberMylibBundle_list:
 MylibberMylibBundle_detail:
     pattern:   /detail/{id}
     defaults:  {_controller: MylibberMylibBundle:Book:detail}
+    
