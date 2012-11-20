@@ -1,0 +1,474 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times,
+              'Times New Roman', serif,
+              "Hiragino Sans GB", "STXihei", "微软雅黑";
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px;}
+pre code { border: 0px !important; }
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}</style></head><body><h1>网络测试文档</h1>
+
+<hr />
+
+<h6 id="1-17216251122-17216251222">1. 子网：172.16.251.1／22 与子网：172.16.251.2／22是否在同一个子网？</h6>
+
+<blockquote>
+  <p>两个子网的网络地址都是：172.16.252.0， 属于同一子网</p>
+</blockquote>
+
+<h6 id="2-arp">2. 描述ARP请求和响应的报文流程格式。</h6>
+
+<blockquote>
+  <p>以太网首部：</p>
+  
+  <blockquote>
+    <p>以太网目的地址：6字节广播地址</p>
+    
+    <p>以太网源地址：6字节</p>
+    
+    <p>硬件地址类型（帧类型）：2字节 </p>
+  </blockquote>
+  
+  <p>arp请求和应答：</p>
+  
+  <blockquote>
+    <p>hardware(硬件类型)：2字节，标识硬件mac地址，1为以太网</p>
+    
+    <p>protocol(协议类型)： 2字节，要映射的协议地址类型，0x0800表示IP地址</p>
+    
+    <p>硬件地址长度：1字节</p>
+    
+    <p>协议地址长度：1字节</p>
+    
+    <p>发送端以太网地址： 与首部存储信息相同</p>
+    
+    <p>发送端IP地址：与首部存储信息相同</p>
+    
+    <p>目的以太网地址</p>
+    
+    <p>目的IP地址</p>
+  </blockquote>
+</blockquote>
+
+<h6 id="3-arparparp19216839253">3. 描述ARP的作用，进行ARP表的显示和清空，在ARP表内手工为192.168.39.253添加一个表项。</h6>
+
+<p>ARP（Address Resolution Protocol）地址解析协议用于将计算机的网络地址（IP地址32位）转化为物理地址（MAC地址48位）[RFC826]。ARP协议是属于链路层的协议，在以太网中的数据帧从一个主机到达网内的另一台主机是根据48位的以太网地址（硬件地址）来确定接口的，而不是根据32位的IP地址 </p>
+
+<p>显示：arp (export PATH=$PATH:/usr/sbin/)</p>
+
+<pre><code>    evenvi@evenvi-MS-7302:~$ arp
+    地址                     类型    硬件地址            标志  Mask            接口
+    titan.local              ether   00:65:51:b2:00:40   C                     eth0
+</code></pre>
+
+<p>添加一条arp记录：</p>
+
+<pre><code>    evenvi@evenvi-MS-7302:~$ sudo  arp -s 192.168.39.252  00:11:22:33:44:55:66
+    evenvi@evenvi-MS-7302:~$ arp
+    地址                     类型    硬件地址            标志  Mask            接口
+    titansec.xicp.net        ether   00:11:22:33:44:55   CM                    eth0
+    titan.local              ether   00:65:51:b2:00:40   C                     eth0
+</code></pre>
+
+<h6 id="4-19216836024">4.  描述路由表的作用和路由查找原理，进行路由表的显示，在路由表中手工为192.168.36.0／24网段添加一个路由。</h6>
+
+<blockquote>
+  <p>数据转发，将数据传送到目的网络或主机。</p>
+  
+  <p>首先进行主机地址匹配，如果成功将数据，发送数据报，如果没有则进行网络地址匹配，成功则发送，不成功发送给默认地址。</p>
+  
+  <p>显示路由表</p>
+</blockquote>
+
+<pre><code>evenvi@evenvi-MS-7302:/sbin$ ./route 
+内核 IP 路由表
+目标            网关            子网掩码        标志  跃点   引用  使用 接口
+default         titan.local     0.0.0.0         UG    0      0        0 eth0
+link-local      *               255.255.0.0     U     1000   0        0 eth0
+192.168.39.0    *               255.255.255.0   U     1      0        0 eth0
+</code></pre>
+
+<blockquote>
+  <p><a href="http://blog.csdn.net/flymachine/article/details/7513703">添加到主机的路由</a></p>
+</blockquote>
+
+<pre><code># route add -host 192.168.1.2 dev eth0:0
+</code></pre>
+
+<h6 id="5-pc123pc123pc4pc5pc123">5. 针对一下网络，为了能够让PC1、2、3之间能相互访问，PC1、2、3均能访问互联网上的PC4，能访问专网上的PC5，请说明在PC1、2、3上的缺省网关配置和三个路由器上的路由配置。</h6>
+
+<p><img src="http://pic.yupoo.com/fuluoxinchen/CpFOy59T/FePVu.jpg" alt="" /></p>
+
+<blockquote>
+  <p>PC1  GW：  192.168.1.1</p>
+  
+  <p>PC2  GW：  192.168.2.1 </p>
+  
+  <p>PC3  GW：  172.16.0.1</p>
+  
+  <p>Router1</p>
+</blockquote>
+
+<pre><code>    目的网路地址        子网掩码            下一跳
+    192.168.1.0         255.255.255.0       接口1
+    172.16.0.0          255.255.0.0         接口2
+    1.1.1.0             255.255.255.0       Router3
+    192.168.2.0         255.255.255.0       Router2
+    10.0.0.0            255.255.0.0         Router3
+</code></pre>
+
+<blockquote>
+  <p>Router2</p>
+</blockquote>
+
+<pre><code>    目的网络地址        子网掩码            下一跳
+    192.168.2.0         255.255.255.0       接口1
+    172.16.0.0          255.255.0.0         接口2
+    192.168.1.0         255.255.255.0       Router1
+    1.1.1.0             255.255.255.0       Router3
+    10.0.0.0            255.255.0.0         Router3
+</code></pre>
+
+<blockquote>
+  <p>Router3</p>
+</blockquote>
+
+<pre><code>    目的网络地址        子网掩码            下一跳
+    172.10.0.0          255.255.0.0         接口1
+    1.1.1.0             255.255.255.0       接口2
+    10.0.0.0            255.255.0.0         接口3
+    192.168.1.0         255.255.255.0       Router1
+    192.168.2.0         255.255.255.0       Router2
+</code></pre>
+
+<h6 id="6-tcp">6. 描述TCP连接建立时三次握手过程。</h6>
+
+<blockquote>
+  <ul>
+  <li><p>第一步：客户机向服务器发送一个TCP数据包,表示请求建立连接. 为此,客户端将数据包的SYN位设置为1,并且设置序列号seq=1000(我们假设为1000).  </p></li>
+  <li><p>第二步：服务器收到了数据包,并从SYN位为1知道这是一个建立请求的连接.于是服务器也向客户端发送一个TCP数据包.因为是响应客户机的请求,于是服务器设置ACK为1,sak_seq=1001(1000+1)(sak_seq:发送确认的一端期望收到的下一个顺序号)同时设置自己的序列号.seq=2000(我们假设为2000). </p></li>
+  <li><p>第三步：客户机收到了服务器的TCP,并从ACK为1和ack_seq=1001知道是从服务器来的确认信息.于是客户机也向服务器发送确认信息.客户机设置ACK=1,和ack_seq=2001,seq=1001,发送给服务器.至此客户端完成连接</p></li>
+  </ul>
+</blockquote>
+
+<h6 id="7-httphttp">7.  一次HTTP协议通信过程中HTTP协议交互流程。</h6>
+
+<p>_基于HTTP协议的客户/服务器模式的信息交换过程，它分四个过程：建立连接、发送请求信息、发送响应信息、关闭连接。_</p>
+
+<ul>
+<li>建立连接：</li>
+</ul>
+
+<blockquote>
+  <p>客户端与服务器的80端口进行三次握手建立一个tcp连接；</p>
+</blockquote>
+
+<ul>
+<li>发送请求信息：</li>
+</ul>
+
+<blockquote>
+  <p>连接建立以后，客户端把请求消息送到服务器的停留端口上，完成提出请求动作。</p>
+  
+  <blockquote>
+    <p>请求消息的第一行为下面的格式：</p>
+  </blockquote>
+</blockquote>
+
+<pre><code>    Method SP Request-URI SP HTTP-VersionCRLF
+</code></pre>
+
+<p>　　     </p>
+
+<blockquote>
+  <blockquote>
+    <p>Method表示对于Request-URI完成的方法；</p>
+    
+    <p>SP表示空格；Request-URI遵循URI格式；</p>
+    
+    <p>HTTP-Version表示支持的HTTP版本，例如为HTTP/1.1；</p>
+    
+    <p>CRLF表示换行回车符</p>
+  </blockquote>
+  
+  <p>1.如果请求信息包括 If-Modified-Since, If-Unmodified-Since,If-Match, If-None-Match, or If-Range报头域, GET的语义将变成"条件（conditial） GET". 只有在条件报头域(conditional header)所描述的环境下, 条件GET方法请求实体被传输. "条件GET"方法用于减少不必要的网络使用,这种使用允许在没有多种请求或客户机已经获传输数据的情况下刷新缓存实体.</p>
+  
+  <p>2.如果请求头包含了“RANGE”域，则GET方法的语义将变成"部分(partial)GET","部分GET"请求只要求传输部分实体。当客户端只得到了部分数据时，部分GET方式允许客户端只获取剩余部分的数据以此来减少不必要的网络使用。这是目前各种网络工具采用伪IE下载支持断点续传的主要原理。</p>
+</blockquote>
+
+<ul>
+<li>发送响应信息：</li>
+</ul>
+
+<blockquote>
+  <p>接收和翻译一个请求信息后，服务器发出一个HTTP应答信息。响应消息的第一行为下面的格式：</p>
+</blockquote>
+
+<pre><code>HTTP-Version SP Status-Code SP Reason-PhraseCRLF
+</code></pre>
+
+<blockquote>
+  <blockquote>
+    <p>HTTP-Version     表示支持的HTTP版本，例如为HTTP/1.1；</p>
+    
+    <p>Status-Code  是一个三个数字的结果代码；</p>
+    
+    <p>Reason- Phrase   给Status-Code提供一个简单的文本描述。</p>
+    
+    <p>Status-Code  第一个数字定义响应的类别，后两个数字没有分类的作用。第一个数字可能取5个不同的值：</p>
+  </blockquote>
+</blockquote>
+
+<pre><code>　　1xx:信息响应类，表示接收到请求并且继续处理；
+　　2xx:处理成功响应类，表示动作被成功接收、理解和接受；
+　　3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理；
+　　4xx:客户端错误，客户请求包含语法错误或者是不能正确执行；
+　　5xx:服务端错误，服务器不能正确执行一个正确的请求。
+</code></pre>
+
+<h6 id="8-httprequest-line">8. 说明HTTP请求（Request Line）行的意义。</h6>
+
+<p>其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。</p>
+
+<pre><code>Request-Line = Method SP Request-URI SP HTTP-Version CRLF
+</code></pre>
+
+<blockquote>
+  <p>Method 有7种</p>
+  
+  <blockquote>
+    <p>GET 检索URI标识资源的一种简单请求 <code>浏览器采用GET方法向服务器获取资源</code></p>
+    
+    <p>HEAD 与GET方法相同，服务器只返回状态和头标，并不返回请求文档 <code>常用于提交表单</code></p>
+    
+    <p>POST 服务器接受被写入客户端输出流中的数据请求 <code>常用于测试超链接的有效性，是否可以访问，以及最近是否更新</code></p>
+    
+    <p>PUT 服务器保存请求数据作为指定URI新内容的请求</p>
+    
+    <p>DELETE 服务器删除URI中命名的资源的请求</p>
+    
+    <p>OPTIONS 关于服务器支持的请求方法信息的请求</p>
+    
+    <p>TRACE Web服务器反馈Http请求和其头标的请求</p>
+    
+    <p>CONNECT 已文档化但当前未实现的一个方法，预留</p>
+  </blockquote>
+</blockquote>
+
+<pre><code>Request-URI = "*" | absoluteURI | abs_path | authority
+</code></pre>
+
+<blockquote>
+  <blockquote>
+    <p>1.*          # 请求并不用于某个特定的资源地址，而是用于服务器本身</p>
+    
+    <p>2.absoluteURI</p>
+    
+    <p>3.abs_path</p>
+    
+    <p>4.authority</p>
+  </blockquote>
+  
+  <p>`请求所指定的准确资源是由请求URI和Host报头域共同决定的。</p>
+  
+  <p>不使用请求的主机来区分资源的源服务端在确定HTTP/1.1请求指定的资源时可以忽略Host报头域。（但是请看一下HTTP/1.1所支持的其他Host需求）。
+  一个基于请求主机（有时候被称为虚拟主机或者虚拟主机名）区分资源的源服务端必须使用下面的规则来确定HTTP/1.1请求所请求的资源：</p>
+  
+  <ol>
+  <li>如果请求URI是一个绝对URI，主机为请求URI中的主机名部分。请求中的哪些Host报头域值必须被忽略</li>
+  <li>如果请求URI不是一个绝对URI，并且请求包括一个Host报头域，那么主机由Host的域值来决定。</li>
+  <li>如果由以上两种方法确定的主机是无效的，那么响应应该是一个400（错误的请求）错误信息。</li>
+  </ol>
+  
+  <p>缺少Host报头域的HTTP/1.0请求的接收者可以尝试使用启发式（例如检查URI路径看是否有针对特定主机的东西）的的方式来确定正确的请求资源。`</p>
+</blockquote>
+
+<h6 id="9-httphttp">9. 结合HTTP协议抓包，说明HTTP请求和响应各字段的意义。</h6>
+
+<pre><code>百度（www.baidu.com/61.135.169.125)http请求：
+
+    GET / HTTP/1.1                          # GET方式 版本1.1
+    Host: www.baidu.com                     # 请求地址，默认端口80
+    Connection: keep-alive                  # 普通报头域允许发送指定连接的选项。例如指定连接是连续，或者指定“close”选项，通知服务器，在响应完成后，关闭连接
+    Cache-Control: max-age=0                # 指定缓存指令
+    User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.11 (KHTML, like Gecko) Ubuntu/12.04 Chromium/20.0.1132.47 Chrome/20.0.1132.47 Safari/536.11
+                                            # 允许客户端将他的浏览器信息发送给服务端
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+                                            # 指定客户端接收哪些类型信息
+    Referer: http://baidu.com/              # 从那个页面跳转而来
+    Accept-Encoding: gzip,deflate,sdch      # 接收信息的编码
+    Accept-Language: zh-CN,zh;q=0.8         # 指定自然语言
+    Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3 # 客户端接收的字符集格式
+    Cookie: BAIDUID=60D0DF01FF08ED7CB326EC8F2AA7F795:FG=1; BDUT=kd7r60D0DF01FF08ED7CB326EC8F2AA7F79513adf0d552c1                         #Cookie信息
+
+http响应：
+
+    HTTP/1.1 200 OK                             # 状态 200 请求成功
+    Date: Wed, 14 Nov 2012 06:36:22 GMT         # 消息产生的日期和时间
+    Server: BWS/1.0                             # 服务端响应请求的软件信息，bws“可能”只是百度的伪装
+    Content-Length: 4064                        # 实体长度，字节表示，十进制
+    Content-Type: text/html;charset=gbk         # 返回的实体正文类型
+    Cache-Control: private                      # 缓存类型
+    Expires: Wed, 14 Nov 2012 06:36:22 GMT      # 实体报头域给出响应过期的日期和时间
+    Content-Encoding: gzip                      # 实体信息编码格式
+    Connection: Keep-Alive                      # 报头域允许发送指定连接的选项
+</code></pre>
+
+<h6 id="10-tracertnslookuptelnet-telnetwebhostswwwtitanseccomcn19216839100">10. 演示tracert和nslookup及telnet的功能， 其中telnet为手工向web服务器获取首页。并手工更改hosts文件，使www.titansec.com.cn域名指向192.168.39.100。</h6>
+
+<blockquote>
+  <p>tracert（linux中的traceroute） 路由跟踪，通过命令 </p>
+</blockquote>
+
+<pre><code>evenvi@evenvi-MS-7302:~$ traceroute www.baidu.com 
+traceroute to www.baidu.com (61.135.169.105), 30 hops max, 60 byte packets                                                
+ 1  titan.local (192.168.39.253)  1.086 ms  1.077 ms  1.100 ms                                                       
+ 2  27.115.76.165 (27.115.76.165)  3.482 ms  3.509 ms  3.955 ms                                                     
+ 3  112.64.247.109 (112.64.247.109)  3.338 ms  3.353 ms  3.362 ms                           
+ 4  112.64.243.61 (112.64.243.61)  29.838 ms  29.851 ms *                                             
+ 5  219.158.97.121 (219.158.97.121)  27.840 ms  27.851 ms  27.848 ms                                        
+ 6  123.126.0.78 (123.126.0.78)  31.733 ms  31.640 ms  31.798 ms                                             
+ 7  123.126.6.166 (123.126.6.166)  34.751 ms  34.758 ms  34.771 ms                                       
+ 8  * * *                                                                                                        
+ 9  * * *                                                                                                                    
+10  202.106.43.66 (202.106.43.66)  27.672 ms !X * *
+</code></pre>
+
+<blockquote>
+  <p>nslookup 查询网络</p>
+</blockquote>
+
+<pre><code>evenvi@evenvi-MS-7302:~$ nslookup www.google.com.hk                                                                                                     
+Server:         127.0.0.1                                                                                                                         
+Address:        127.0.0.1#53                                                                                                                          
+
+Non-authoritative answer:                                                                                                                    
+www.google.com.hk       canonical name = www-wide.l.google.com.                                                                          
+Name:   www-wide.l.google.com                                                                        
+Address: 74.125.128.199
+</code></pre>
+
+<blockquote>
+  <p>telnet</p>
+  
+  <blockquote>
+    <p>windows </p>
+  </blockquote>
+  
+  <p>sudo vim /etc/hosts </p>
+</blockquote>
+</body>

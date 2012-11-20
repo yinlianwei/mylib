@@ -49,7 +49,7 @@ class __TwigTemplate_9ec10cd83ca5e0ec0c25c94c677565cc extends Twig_Template
         \t<a href=\"";
             // line 11
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("MylibberMylibBundle_detail", array("id" => $this->getAttribute($this->getContext($context, "book"), "Id"))), "html", null, true);
-            echo "\"><img src=\"";
+            echo "\"><img width=\"103px\" height=\"144px\" src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(twig_join_filter(array(0 => $this->getAttribute($this->getContext($context, "book"), "bookPic")))), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "book"), "bookName"), "html", null, true);

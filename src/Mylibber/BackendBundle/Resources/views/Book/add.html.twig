@@ -3,10 +3,26 @@
   {% block body %}
   <div class="alert alert-info">
   <h4>书籍录入</h4></div>
-     <a href="../../test_douban.php" target="view_window"><span class="label label-success">从豆瓣获取图书参考信息</span></a>
-
+	<form method="post" action="{{ path('mylibber_backend_getBookInfo') }}">
+	    <input name="bookIsbn" />
+	    <input type=submit value="自动获取" />
+	    <div class="alert alert-success" style="width:300px;" >
+			输入ISBN: [ 9787111126768 ] :点击从自动查找，获取该图书详细参考信息;
+		</div>
+		
+	</form>
 		<form action="{{ path('mylibber_backend_addnew')}}" method="post" {{ form_enctype(form) }} class="bloger">
-		    {{ form_widget(form) }} 
+		   	{{ form_errors(form) }} 
+    		{{ form_row(form.bookIsbn) }}
+    		{{ form_row(form.bookName) }}
+    		{{ form_row(form.categoryName) }}
+    		{{ form_row(form.bookAuthor) }}
+    		{{ form_row(form.bookPrice) }}
+    		{{ form_row(form.bookPic) }}
+    		{{ form_row(form.bookContent) }}
+    		{{ form_row(form.bookOwner) }}
+    		{{ form_row(form.bookBorr) }}
+		    {{ form_rest(form) }} 
 		    <input type="submit" /> 
 		</form>
 {% endblock %}

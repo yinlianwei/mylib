@@ -16,21 +16,21 @@ mylibber_backend_deletebook:
     pattern:    /admin/deltebook/{id}
     defaults:  { _controller: MylibberBackendBundle:Book:deletebook }
 
-
+mylibber_backend_getBookInfo:
+    pattern:  /admin/getBookInfo
+    defaults: { _controller: MylibberBackendBundle:getFromDouban:getBookInfo  }
 
 mylibber_backend_histbook:
     pattern:  /admin/histbook
     defaults: { _controller: MylibberBackendBundle:Book:hist  }
 
-mylibber_backend_usermanage:
-    pattern:  /admin/usermanage
-    defaults: { _controller: MylibberBackendBundle:Book:usermanage  }
+
 
 mylibber_backend_config:
     pattern:  /admin/config
     defaults: { _controller: MylibberBackendBundle:Book:config  }
 
-
+#目录
 mylibber_backend_addCategory:
     pattern:   /admin/addCategory
     defaults:  { _controller: MylibberBackendBundle:Category:addCategory }
@@ -44,6 +44,11 @@ mylibber_backend_deleteCategory:
     defaults:  { _controller: MylibberBackendBundle:Category:deleteCategory }
 
 
+
+#用户管理
+mylibber_backend_usermanage:
+    pattern:  /admin/usermanage
+    defaults: { _controller: MylibberBackendBundle:Book:usermanage  }
 mylibber_backend_addUser:
     pattern:   /admin/addUser
     defaults:  { _controller: MylibberBackendBundle:User:addUser }
@@ -61,6 +66,8 @@ mylibber_backend_updateUser:
     defaults:  { _controller: MylibberBackendBundle:User:updateUser}
 
 
+
+#图书借阅
 mylibber_backend_borrbook:
     pattern:  /admin/borrbook
     defaults: { _controller: MylibberBackendBundle:Borr:borr  }
@@ -86,6 +93,8 @@ mylibber_backend_isbnBorrList:
 mylibber_backend_giveBack:
     pattern: /admin/giveBack/{bookIsbn}
     defaults: {_controller: MylibberBackendBundle:Book:giveBack}
+
+
 
 #ebook
 mylibber_backend_addebookform:

@@ -8,7 +8,7 @@
         
     	<div class="bookpic">
     		<p><a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><span class="badge badge-warning">{{ book.bookName }}</span></a></p>
-        	<a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><img src="{{ asset([book.bookPic]|join) }}" alt="{{ book.bookName }} image not found" class="large" /></a>
+        	<a href="{{ path('MylibberMylibBundle_detail',{'id':book.Id})}}"><img width="103px" height="144px" src="{{ asset([book.bookPic]|join) }}" alt="{{ book.bookName }} image not found" class="large" /></a>
         </div>
         <div class="bookattribute">
        		<p></p>

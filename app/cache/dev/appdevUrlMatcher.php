@@ -187,14 +187,14 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::deletebookAction',)), array('_route' => 'mylibber_backend_deletebook'));
         }
 
+        // mylibber_backend_getBookInfo
+        if ($pathinfo === '/admin/getBookInfo') {
+            return array (  '_controller' => 'MylibberBackendBundle:getFromDouban:getBookInfo',  '_route' => 'mylibber_backend_getBookInfo',);
+        }
+
         // mylibber_backend_histbook
         if ($pathinfo === '/admin/histbook') {
             return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::histAction',  '_route' => 'mylibber_backend_histbook',);
-        }
-
-        // mylibber_backend_usermanage
-        if ($pathinfo === '/admin/usermanage') {
-            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::usermanageAction',  '_route' => 'mylibber_backend_usermanage',);
         }
 
         // mylibber_backend_config
@@ -215,6 +215,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // mylibber_backend_deleteCategory
         if (0 === strpos($pathinfo, '/admin/deleteCategory') && preg_match('#^/admin/deleteCategory/(?<id>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\CategoryController::deleteCategoryAction',)), array('_route' => 'mylibber_backend_deleteCategory'));
+        }
+
+        // mylibber_backend_usermanage
+        if ($pathinfo === '/admin/usermanage') {
+            return array (  '_controller' => 'Mylibber\\BackendBundle\\Controller\\BookController::usermanageAction',  '_route' => 'mylibber_backend_usermanage',);
         }
 
         // mylibber_backend_addUser
